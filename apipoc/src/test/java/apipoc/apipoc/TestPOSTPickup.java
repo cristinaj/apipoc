@@ -1,28 +1,56 @@
 package apipoc.apipoc;
 
 import org.junit.Test;
-import org.junit.Before;
 
-import com.test.apipoc.helpers.payloads.PickupPayloadHelper;
-import com.test.apipoc.helpers.services.PickupServiceHelper;
-//import com.test.apipoc.model.User;
+import com.test.helpers.IRestResponse;
+import com.test.helpers.payloads.PickupPayloadHelper;
+import com.test.helpers.services.PickupServiceHelper;
+import com.test.models.Pickup;
+
+import static org.junit.Assert.assertEquals;
 
 public class TestPOSTPickup {
 
 	private PickupServiceHelper pickupServiceHelper;
 	//private User user;
 	
-	@Before
-	public void init() {
-		pickupServiceHelper = new PickupServiceHelper();
-		//user = new User(configManager.getValue("user.clientId"),configManager.getValue("user.clientSecret"), configManager.getValue("user.userId"));
-	}
 	
 	@Test
 	public void testCreatePickup() {
+		pickupServiceHelper = new PickupServiceHelper();	
+		Pickup pickup = PickupPayloadHelper.createPickupPayloadDefaultValues();
 		
-		String shipperName = pickupServiceHelper.createPickup(PickupPayloadHelper.createPickupPayload()).jsonPath().getString("shipper.shipperName");//check if the response needs to be mapped to a class
+		IRestResponse<Pickup> response = pickupServiceHelper.createPickup(pickup);
+		System.out.println("1. Shipper name from response: "+response.getBody().getShipper().getShipperName());
 		
-		System.out.println("Bla: "+shipperName);
+		Pickup createdPickup = response.getBody();
+		
+		System.out.println("1. ShipperName from POJO: "+createdPickup.getShipper().getShipperName());
+	}
+	
+	@Test
+	public void testCreatePickupRandomValues() {
+		pickupServiceHelper = new PickupServiceHelper();
+		Pickup pickup = new PickupPayloadHelper().createPickupPayloadRandomValues();
+		
+		
+		IRestResponse<Pickup> response = pickupServiceHelper.createPickup(pickup);
+		System.out.println("2. Shipper name from response: "+response.getBody().getShipper().getShipperName());
+		
+		Pickup createdPickup = response.getBody();
+		System.out.println("2. ShipperName: "+createdPickup.getShipper().getShipperName());
+	}
+	
+	@Test
+	public void testCreatePickupWithPayload() {
+		pickupServiceHelper = new PickupServiceHelper();
+		
+		Pickup pickup = PickupPayloadHelper.readPickupPayloadFromJSONFile("POSTpickupPayload.json");
+		IRestResponse<Pickup> response = pickupServiceHelper.createPickup(pickup);
+		
+		Pickup createdPickup = response.getBody();
+		assertEquals(pickup, createdPickup);
+		
+		System.out.println("3. ShipperName: "+createdPickup.getShipper().getShipperName());
 	}
 }

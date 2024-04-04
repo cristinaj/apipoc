@@ -1,0 +1,211 @@
+{
+  "data": {
+    "requestNumber": "1234",
+    "shipper": {
+      "shipperName": "testGETshipperName",
+      "accountCode": "testGETaccountCode",
+      "shipperAddress": {
+        "addressInfo": {
+          "addressLine1": "testGETaccountCode",
+          "addressLine2": "testGETaccountCode",
+          "city": "testGETaccountCode",
+          "stateProvince": "testGETaccountCode",
+          "postalCode": "testGETaccountCode",
+          "postalCode4": "testGETaccountCode",
+          "countryAbbrev": "testGETaccountCode"
+        }
+      },
+      "shipperContacts": {
+        "shipperContact": [
+          {
+            "contactInfo": {
+              "name": {
+                "firstName": "testGETfirstName",
+                "middleName": "testGETmiddleName",
+                "lastName": "testGETlastName"
+              },
+              "email": "testGETemail",
+              "phone": {
+                "areaCode": 123,
+                "number": 12345,
+                "extension": 12
+              },
+              "fax": {
+                "areaCode": 5,
+                "number": 6
+              },
+              "receiveNotifications": "testGETreceiveNotifications",
+              "notificationMethod": "testGETnotificationMethod"
+            }
+          }
+        ]
+      }
+    },
+    "requestAction": "testGETrequestAction",
+    "paymentTerms": "testGETpaymentTerms",
+    "pickupDate": "testGETpickupDate",
+    "pickupStartTime": "testGETpickupStartTime",
+    "pickupEndTime": "testGETpickupEndTime",
+    "totalPieces": "testGETtotalPieces",
+    "totalWeight": "testGETtotalWeight",
+    "totalHandlingUnits": "testGETtotalHandlingUnits",
+    "hazmatFlag": "testGEThazmatFlag",
+    "expeditedCode": "testGETexpeditedCode",
+    "whoRequested": "testGETwhoRequested",
+    "trailer": [
+      {
+        "trailerInfo": {
+          "id": "testGETid",
+          "length": "testGETlength",
+          "type": "testGETtype"
+        }
+      }
+    ],
+    "referenceNumbers": {
+      "referenceNumber": [
+        {
+          "referenceInfo": {
+            "type": "PRO",
+            "value": "0062020915",
+            "required": "N",
+            "totalPieces": 1,
+            "totalWeight": 2
+          }
+        },
+        {
+          "referenceInfo": {
+            "type": "PON",
+            "value": "API31082020",
+            "required": "N",
+            "totalPieces": 3,
+            "totalWeight": 4
+          }
+        },
+        {
+          "referenceInfo": {
+            "type": "BOL",
+            "value": "API08312020",
+            "required": "N",
+            "totalPieces": 5,
+            "totalWeight": 6
+          }
+        },
+        {
+          "referenceInfo": {
+            "type": "EUI",
+            "value": "APIE10022020",
+            "required": "N",
+            "totalPieces": 7,
+            "totalWeight": 8
+          }
+        },
+        {
+          "referenceInfo": {
+            "type": "LDN",
+            "value": "APIL10022020",
+            "required": "N",
+            "totalPieces": 9,
+            "totalWeight": 0
+          }
+        },
+        {
+          "referenceInfo": {
+            "type": "SNO",
+            "value": "APIS10022020",
+            "required": "N",
+            "totalPieces": 1,
+            "totalWeight": 2
+          }
+        }
+      ]
+    },
+    "commodities": {
+      "commodity": [
+        {
+          "commodityInfo": {
+            "code": "testGETcode",
+            "packageCode": "testGETpackageCode",
+            "description": "testGETdescription",
+            "hazmat": {
+              "hazmatCode": "testGEThazmatCode",
+              "hazmatFlag": "testGEThazmatFlag"
+            },
+            "pieces": "testGETpieces",
+            "weight": "testGETweight",
+            "nmfcNumber": "testGETnmfcNumber",
+            "nmfcSubNumber": "testGETnmfcSubNumber"
+          }
+        }
+      ]
+    },
+    "comments": {
+      "comment": [
+        {
+          "commentInfo": {
+            "type": "testGETtype",
+            "commentText": "testGETcommentText"
+          }
+        }
+      ]
+    },
+    "consignee": {
+      "accountCode": "testGETaccountCode",
+      "accountName": "testGETaccountName"
+    },
+    "thirdParty": {
+      "accountCode": "testGETaccountCode",
+      "accountName": "testGETaccountName"
+    },
+    "addresses": {
+      "address": [
+        {
+          "addressInfo": {
+            "addressType": "testGETaddressType",
+            "addressLine1": "testGETaddressLine1",
+            "addressLine2": "testGETaddressLine2",
+            "city": "testGETcity",
+            "stateProvince": "testGETstateProvince",
+            "postalCode": "testGETpostalCode",
+            "postalCode4": "testGETpostalCode4",
+            "countryAbbrev": "testGETcountryAbbrev"
+          }
+        }
+      ]
+    },
+    "contacts": {
+      "contact": [
+        {
+          "contactInfo": {
+            "contactType": "testGETcontactType",
+            "name": {
+              "firstName": "testGETfirstName",
+              "middleName": "testGETmiddleName",
+              "lastName": "testGETlastName"
+            },
+            "email": "testGETemail",
+            "phone": {
+              "areaCode": 444,
+              "number": 44444,
+              "extension": 44
+            },
+            "fax": {
+              "areaCode": 0,
+              "number": 0
+            },
+            "receiveNotifications": "testGETreceiveNotifications",
+            "notificationMethod": "testGETnotificationMethod"
+          }
+        }
+      ]
+    },
+    "notifications": {
+      "notification": [
+        {
+          "notificationInfo": {
+            "type": "testGETtype"
+          }
+        }
+      ]
+    }
+  }
+}

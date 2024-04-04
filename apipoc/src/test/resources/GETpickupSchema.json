@@ -1,0 +1,1279 @@
+{
+	"definitions": {},
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://example.com/object1712150422.json", 
+	"title": "Root", 
+	"type": "object",
+	"required": [
+		"data"
+	],
+	"properties": {
+		"data": {
+			"$id": "#root/data", 
+			"title": "Data", 
+			"type": "object",
+			"required": [
+				"requestNumber",
+				"shipper",
+				"requestAction",
+				"paymentTerms",
+				"pickupDate",
+				"pickupStartTime",
+				"pickupEndTime",
+				"totalPieces",
+				"totalWeight",
+				"totalHandlingUnits",
+				"hazmatFlag",
+				"expeditedCode",
+				"whoRequested",
+				"trailer",
+				"referenceNumbers",
+				"commodities",
+				"comments",
+				"consignee",
+				"thirdParty",
+				"addresses",
+				"contacts",
+				"notifications"
+			],
+			"properties": {
+				"requestNumber": {
+					"$id": "#root/data/requestNumber", 
+					"title": "Requestnumber", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"1234"
+					],
+					"pattern": "^.*$"
+				},
+				"shipper": {
+					"$id": "#root/data/shipper", 
+					"title": "Shipper", 
+					"type": "object",
+					"required": [
+						"shipperName",
+						"accountCode",
+						"shipperAddress",
+						"shipperContacts"
+					],
+					"properties": {
+						"shipperName": {
+							"$id": "#root/data/shipper/shipperName", 
+							"title": "Shippername", 
+							"type": "string",
+							"default": "",
+							"examples": [
+								"testGETshipperName"
+							],
+							"pattern": "^.*$"
+						},
+						"accountCode": {
+							"$id": "#root/data/shipper/accountCode", 
+							"title": "Accountcode", 
+							"type": "string",
+							"default": "",
+							"examples": [
+								"testGETaccountCode"
+							],
+							"pattern": "^.*$"
+						},
+						"shipperAddress": {
+							"$id": "#root/data/shipper/shipperAddress", 
+							"title": "Shipperaddress", 
+							"type": "object",
+							"required": [
+								"addressInfo"
+							],
+							"properties": {
+								"addressInfo": {
+									"$id": "#root/data/shipper/shipperAddress/addressInfo", 
+									"title": "Addressinfo", 
+									"type": "object",
+									"required": [
+										"addressLine1",
+										"addressLine2",
+										"city",
+										"stateProvince",
+										"postalCode",
+										"postalCode4",
+										"countryAbbrev"
+									],
+									"properties": {
+										"addressLine1": {
+											"$id": "#root/data/shipper/shipperAddress/addressInfo/addressLine1", 
+											"title": "Addressline1", 
+											"type": "string",
+											"default": "",
+											"examples": [
+												"testGETaccountCode"
+											],
+											"pattern": "^.*$"
+										},
+										"addressLine2": {
+											"$id": "#root/data/shipper/shipperAddress/addressInfo/addressLine2", 
+											"title": "Addressline2", 
+											"type": "string",
+											"default": "",
+											"examples": [
+												"testGETaccountCode"
+											],
+											"pattern": "^.*$"
+										},
+										"city": {
+											"$id": "#root/data/shipper/shipperAddress/addressInfo/city", 
+											"title": "City", 
+											"type": "string",
+											"default": "",
+											"examples": [
+												"testGETaccountCode"
+											],
+											"pattern": "^.*$"
+										},
+										"stateProvince": {
+											"$id": "#root/data/shipper/shipperAddress/addressInfo/stateProvince", 
+											"title": "Stateprovince", 
+											"type": "string",
+											"default": "",
+											"examples": [
+												"testGETaccountCode"
+											],
+											"pattern": "^.*$"
+										},
+										"postalCode": {
+											"$id": "#root/data/shipper/shipperAddress/addressInfo/postalCode", 
+											"title": "Postalcode", 
+											"type": "string",
+											"default": "",
+											"examples": [
+												"testGETaccountCode"
+											],
+											"pattern": "^.*$"
+										},
+										"postalCode4": {
+											"$id": "#root/data/shipper/shipperAddress/addressInfo/postalCode4", 
+											"title": "Postalcode4", 
+											"type": "string",
+											"default": "",
+											"examples": [
+												"testGETaccountCode"
+											],
+											"pattern": "^.*$"
+										},
+										"countryAbbrev": {
+											"$id": "#root/data/shipper/shipperAddress/addressInfo/countryAbbrev", 
+											"title": "Countryabbrev", 
+											"type": "string",
+											"default": "",
+											"examples": [
+												"testGETaccountCode"
+											],
+											"pattern": "^.*$"
+										}
+									}
+								}
+
+							}
+						}
+,
+						"shipperContacts": {
+							"$id": "#root/data/shipper/shipperContacts", 
+							"title": "Shippercontacts", 
+							"type": "object",
+							"required": [
+								"shipperContact"
+							],
+							"properties": {
+								"shipperContact": {
+									"$id": "#root/data/shipper/shipperContacts/shipperContact", 
+									"title": "Shippercontact", 
+									"type": "array",
+									"default": [],
+									"items":{
+										"$id": "#root/data/shipper/shipperContacts/shipperContact/items", 
+										"title": "Items", 
+										"type": "object",
+										"required": [
+											"contactInfo"
+										],
+										"properties": {
+											"contactInfo": {
+												"$id": "#root/data/shipper/shipperContacts/shipperContact/items/contactInfo", 
+												"title": "Contactinfo", 
+												"type": "object",
+												"required": [
+													"name",
+													"email",
+													"phone",
+													"fax",
+													"receiveNotifications",
+													"notificationMethod"
+												],
+												"properties": {
+													"name": {
+														"$id": "#root/data/shipper/shipperContacts/shipperContact/items/contactInfo/name", 
+														"title": "Name", 
+														"type": "object",
+														"required": [
+															"firstName",
+															"middleName",
+															"lastName"
+														],
+														"properties": {
+															"firstName": {
+																"$id": "#root/data/shipper/shipperContacts/shipperContact/items/contactInfo/name/firstName", 
+																"title": "Firstname", 
+																"type": "string",
+																"default": "",
+																"examples": [
+																	"testGETfirstName"
+																],
+																"pattern": "^.*$"
+															},
+															"middleName": {
+																"$id": "#root/data/shipper/shipperContacts/shipperContact/items/contactInfo/name/middleName", 
+																"title": "Middlename", 
+																"type": "string",
+																"default": "",
+																"examples": [
+																	"testGETmiddleName"
+																],
+																"pattern": "^.*$"
+															},
+															"lastName": {
+																"$id": "#root/data/shipper/shipperContacts/shipperContact/items/contactInfo/name/lastName", 
+																"title": "Lastname", 
+																"type": "string",
+																"default": "",
+																"examples": [
+																	"testGETlastName"
+																],
+																"pattern": "^.*$"
+															}
+														}
+													}
+,
+													"email": {
+														"$id": "#root/data/shipper/shipperContacts/shipperContact/items/contactInfo/email", 
+														"title": "Email", 
+														"type": "string",
+														"default": "",
+														"examples": [
+															"testGETemail"
+														],
+														"pattern": "^.*$"
+													},
+													"phone": {
+														"$id": "#root/data/shipper/shipperContacts/shipperContact/items/contactInfo/phone", 
+														"title": "Phone", 
+														"type": "object",
+														"required": [
+															"areaCode",
+															"number",
+															"extension"
+														],
+														"properties": {
+															"areaCode": {
+																"$id": "#root/data/shipper/shipperContacts/shipperContact/items/contactInfo/phone/areaCode", 
+																"title": "Areacode", 
+																"type": "integer",
+																"examples": [
+																	123
+																],
+																"default": 0
+															},
+															"number": {
+																"$id": "#root/data/shipper/shipperContacts/shipperContact/items/contactInfo/phone/number", 
+																"title": "Number", 
+																"type": "integer",
+																"examples": [
+																	12345
+																],
+																"default": 0
+															},
+															"extension": {
+																"$id": "#root/data/shipper/shipperContacts/shipperContact/items/contactInfo/phone/extension", 
+																"title": "Extension", 
+																"type": "integer",
+																"examples": [
+																	12
+																],
+																"default": 0
+															}
+														}
+													}
+,
+													"fax": {
+														"$id": "#root/data/shipper/shipperContacts/shipperContact/items/contactInfo/fax", 
+														"title": "Fax", 
+														"type": "object",
+														"required": [
+															"areaCode",
+															"number"
+														],
+														"properties": {
+															"areaCode": {
+																"$id": "#root/data/shipper/shipperContacts/shipperContact/items/contactInfo/fax/areaCode", 
+																"title": "Areacode", 
+																"type": "integer",
+																"examples": [
+																	5
+																],
+																"default": 0
+															},
+															"number": {
+																"$id": "#root/data/shipper/shipperContacts/shipperContact/items/contactInfo/fax/number", 
+																"title": "Number", 
+																"type": "integer",
+																"examples": [
+																	6
+																],
+																"default": 0
+															}
+														}
+													}
+,
+													"receiveNotifications": {
+														"$id": "#root/data/shipper/shipperContacts/shipperContact/items/contactInfo/receiveNotifications", 
+														"title": "Receivenotifications", 
+														"type": "string",
+														"default": "",
+														"examples": [
+															"testGETreceiveNotifications"
+														],
+														"pattern": "^.*$"
+													},
+													"notificationMethod": {
+														"$id": "#root/data/shipper/shipperContacts/shipperContact/items/contactInfo/notificationMethod", 
+														"title": "Notificationmethod", 
+														"type": "string",
+														"default": "",
+														"examples": [
+															"testGETnotificationMethod"
+														],
+														"pattern": "^.*$"
+													}
+												}
+											}
+
+										}
+									}
+
+								}
+							}
+						}
+
+					}
+				}
+,
+				"requestAction": {
+					"$id": "#root/data/requestAction", 
+					"title": "Requestaction", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testGETrequestAction"
+					],
+					"pattern": "^.*$"
+				},
+				"paymentTerms": {
+					"$id": "#root/data/paymentTerms", 
+					"title": "Paymentterms", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testGETpaymentTerms"
+					],
+					"pattern": "^.*$"
+				},
+				"pickupDate": {
+					"$id": "#root/data/pickupDate", 
+					"title": "Pickupdate", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testGETpickupDate"
+					],
+					"pattern": "^.*$"
+				},
+				"pickupStartTime": {
+					"$id": "#root/data/pickupStartTime", 
+					"title": "Pickupstarttime", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testGETpickupStartTime"
+					],
+					"pattern": "^.*$"
+				},
+				"pickupEndTime": {
+					"$id": "#root/data/pickupEndTime", 
+					"title": "Pickupendtime", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testGETpickupEndTime"
+					],
+					"pattern": "^.*$"
+				},
+				"totalPieces": {
+					"$id": "#root/data/totalPieces", 
+					"title": "Totalpieces", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testGETtotalPieces"
+					],
+					"pattern": "^.*$"
+				},
+				"totalWeight": {
+					"$id": "#root/data/totalWeight", 
+					"title": "Totalweight", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testGETtotalWeight"
+					],
+					"pattern": "^.*$"
+				},
+				"totalHandlingUnits": {
+					"$id": "#root/data/totalHandlingUnits", 
+					"title": "Totalhandlingunits", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testGETtotalHandlingUnits"
+					],
+					"pattern": "^.*$"
+				},
+				"hazmatFlag": {
+					"$id": "#root/data/hazmatFlag", 
+					"title": "Hazmatflag", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testGEThazmatFlag"
+					],
+					"pattern": "^.*$"
+				},
+				"expeditedCode": {
+					"$id": "#root/data/expeditedCode", 
+					"title": "Expeditedcode", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testGETexpeditedCode"
+					],
+					"pattern": "^.*$"
+				},
+				"whoRequested": {
+					"$id": "#root/data/whoRequested", 
+					"title": "Whorequested", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testGETwhoRequested"
+					],
+					"pattern": "^.*$"
+				},
+				"trailer": {
+					"$id": "#root/data/trailer", 
+					"title": "Trailer", 
+					"type": "array",
+					"default": [],
+					"items":{
+						"$id": "#root/data/trailer/items", 
+						"title": "Items", 
+						"type": "object",
+						"required": [
+							"trailerInfo"
+						],
+						"properties": {
+							"trailerInfo": {
+								"$id": "#root/data/trailer/items/trailerInfo", 
+								"title": "Trailerinfo", 
+								"type": "object",
+								"required": [
+									"id",
+									"length",
+									"type"
+								],
+								"properties": {
+									"id": {
+										"$id": "#root/data/trailer/items/trailerInfo/id", 
+										"title": "Id", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testGETid"
+										],
+										"pattern": "^.*$"
+									},
+									"length": {
+										"$id": "#root/data/trailer/items/trailerInfo/length", 
+										"title": "Length", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testGETlength"
+										],
+										"pattern": "^.*$"
+									},
+									"type": {
+										"$id": "#root/data/trailer/items/trailerInfo/type", 
+										"title": "Type", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testGETtype"
+										],
+										"pattern": "^.*$"
+									}
+								}
+							}
+
+						}
+					}
+
+				},
+				"referenceNumbers": {
+					"$id": "#root/data/referenceNumbers", 
+					"title": "Referencenumbers", 
+					"type": "object",
+					"required": [
+						"referenceNumber"
+					],
+					"properties": {
+						"referenceNumber": {
+							"$id": "#root/data/referenceNumbers/referenceNumber", 
+							"title": "Referencenumber", 
+							"type": "array",
+							"default": [],
+							"items":{
+								"$id": "#root/data/referenceNumbers/referenceNumber/items", 
+								"title": "Items", 
+								"type": "object",
+								"required": [
+									"referenceInfo"
+								],
+								"properties": {
+									"referenceInfo": {
+										"$id": "#root/data/referenceNumbers/referenceNumber/items/referenceInfo", 
+										"title": "Referenceinfo", 
+										"type": "object",
+										"required": [
+											"type",
+											"value",
+											"required",
+											"totalPieces",
+											"totalWeight"
+										],
+										"properties": {
+											"type": {
+												"$id": "#root/data/referenceNumbers/referenceNumber/items/referenceInfo/type", 
+												"title": "Type", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"PRO"
+												],
+												"pattern": "^.*$"
+											},
+											"value": {
+												"$id": "#root/data/referenceNumbers/referenceNumber/items/referenceInfo/value", 
+												"title": "Value", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"0062020915"
+												],
+												"pattern": "^.*$"
+											},
+											"required": {
+												"$id": "#root/data/referenceNumbers/referenceNumber/items/referenceInfo/required", 
+												"title": "Required", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"N"
+												],
+												"pattern": "^.*$"
+											},
+											"totalPieces": {
+												"$id": "#root/data/referenceNumbers/referenceNumber/items/referenceInfo/totalPieces", 
+												"title": "Totalpieces", 
+												"type": "integer",
+												"examples": [
+													1
+												],
+												"default": 0
+											},
+											"totalWeight": {
+												"$id": "#root/data/referenceNumbers/referenceNumber/items/referenceInfo/totalWeight", 
+												"title": "Totalweight", 
+												"type": "integer",
+												"examples": [
+													2
+												],
+												"default": 0
+											}
+										}
+									}
+
+								}
+							}
+
+						}
+					}
+				}
+,
+				"commodities": {
+					"$id": "#root/data/commodities", 
+					"title": "Commodities", 
+					"type": "object",
+					"required": [
+						"commodity"
+					],
+					"properties": {
+						"commodity": {
+							"$id": "#root/data/commodities/commodity", 
+							"title": "Commodity", 
+							"type": "array",
+							"default": [],
+							"items":{
+								"$id": "#root/data/commodities/commodity/items", 
+								"title": "Items", 
+								"type": "object",
+								"required": [
+									"commodityInfo"
+								],
+								"properties": {
+									"commodityInfo": {
+										"$id": "#root/data/commodities/commodity/items/commodityInfo", 
+										"title": "Commodityinfo", 
+										"type": "object",
+										"required": [
+											"code",
+											"packageCode",
+											"description",
+											"hazmat",
+											"pieces",
+											"weight",
+											"nmfcNumber",
+											"nmfcSubNumber"
+										],
+										"properties": {
+											"code": {
+												"$id": "#root/data/commodities/commodity/items/commodityInfo/code", 
+												"title": "Code", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETcode"
+												],
+												"pattern": "^.*$"
+											},
+											"packageCode": {
+												"$id": "#root/data/commodities/commodity/items/commodityInfo/packageCode", 
+												"title": "Packagecode", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETpackageCode"
+												],
+												"pattern": "^.*$"
+											},
+											"description": {
+												"$id": "#root/data/commodities/commodity/items/commodityInfo/description", 
+												"title": "Description", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETdescription"
+												],
+												"pattern": "^.*$"
+											},
+											"hazmat": {
+												"$id": "#root/data/commodities/commodity/items/commodityInfo/hazmat", 
+												"title": "Hazmat", 
+												"type": "object",
+												"required": [
+													"hazmatCode",
+													"hazmatFlag"
+												],
+												"properties": {
+													"hazmatCode": {
+														"$id": "#root/data/commodities/commodity/items/commodityInfo/hazmat/hazmatCode", 
+														"title": "Hazmatcode", 
+														"type": "string",
+														"default": "",
+														"examples": [
+															"testGEThazmatCode"
+														],
+														"pattern": "^.*$"
+													},
+													"hazmatFlag": {
+														"$id": "#root/data/commodities/commodity/items/commodityInfo/hazmat/hazmatFlag", 
+														"title": "Hazmatflag", 
+														"type": "string",
+														"default": "",
+														"examples": [
+															"testGEThazmatFlag"
+														],
+														"pattern": "^.*$"
+													}
+												}
+											}
+,
+											"pieces": {
+												"$id": "#root/data/commodities/commodity/items/commodityInfo/pieces", 
+												"title": "Pieces", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETpieces"
+												],
+												"pattern": "^.*$"
+											},
+											"weight": {
+												"$id": "#root/data/commodities/commodity/items/commodityInfo/weight", 
+												"title": "Weight", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETweight"
+												],
+												"pattern": "^.*$"
+											},
+											"nmfcNumber": {
+												"$id": "#root/data/commodities/commodity/items/commodityInfo/nmfcNumber", 
+												"title": "Nmfcnumber", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETnmfcNumber"
+												],
+												"pattern": "^.*$"
+											},
+											"nmfcSubNumber": {
+												"$id": "#root/data/commodities/commodity/items/commodityInfo/nmfcSubNumber", 
+												"title": "Nmfcsubnumber", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETnmfcSubNumber"
+												],
+												"pattern": "^.*$"
+											}
+										}
+									}
+
+								}
+							}
+
+						}
+					}
+				}
+,
+				"comments": {
+					"$id": "#root/data/comments", 
+					"title": "Comments", 
+					"type": "object",
+					"required": [
+						"comment"
+					],
+					"properties": {
+						"comment": {
+							"$id": "#root/data/comments/comment", 
+							"title": "Comment", 
+							"type": "array",
+							"default": [],
+							"items":{
+								"$id": "#root/data/comments/comment/items", 
+								"title": "Items", 
+								"type": "object",
+								"required": [
+									"commentInfo"
+								],
+								"properties": {
+									"commentInfo": {
+										"$id": "#root/data/comments/comment/items/commentInfo", 
+										"title": "Commentinfo", 
+										"type": "object",
+										"required": [
+											"type",
+											"commentText"
+										],
+										"properties": {
+											"type": {
+												"$id": "#root/data/comments/comment/items/commentInfo/type", 
+												"title": "Type", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETtype"
+												],
+												"pattern": "^.*$"
+											},
+											"commentText": {
+												"$id": "#root/data/comments/comment/items/commentInfo/commentText", 
+												"title": "Commenttext", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETcommentText"
+												],
+												"pattern": "^.*$"
+											}
+										}
+									}
+
+								}
+							}
+
+						}
+					}
+				}
+,
+				"consignee": {
+					"$id": "#root/data/consignee", 
+					"title": "Consignee", 
+					"type": "object",
+					"required": [
+						"accountCode",
+						"accountName"
+					],
+					"properties": {
+						"accountCode": {
+							"$id": "#root/data/consignee/accountCode", 
+							"title": "Accountcode", 
+							"type": "string",
+							"default": "",
+							"examples": [
+								"testGETaccountCode"
+							],
+							"pattern": "^.*$"
+						},
+						"accountName": {
+							"$id": "#root/data/consignee/accountName", 
+							"title": "Accountname", 
+							"type": "string",
+							"default": "",
+							"examples": [
+								"testGETaccountName"
+							],
+							"pattern": "^.*$"
+						}
+					}
+				}
+,
+				"thirdParty": {
+					"$id": "#root/data/thirdParty", 
+					"title": "Thirdparty", 
+					"type": "object",
+					"required": [
+						"accountCode",
+						"accountName"
+					],
+					"properties": {
+						"accountCode": {
+							"$id": "#root/data/thirdParty/accountCode", 
+							"title": "Accountcode", 
+							"type": "string",
+							"default": "",
+							"examples": [
+								"testGETaccountCode"
+							],
+							"pattern": "^.*$"
+						},
+						"accountName": {
+							"$id": "#root/data/thirdParty/accountName", 
+							"title": "Accountname", 
+							"type": "string",
+							"default": "",
+							"examples": [
+								"testGETaccountName"
+							],
+							"pattern": "^.*$"
+						}
+					}
+				}
+,
+				"addresses": {
+					"$id": "#root/data/addresses", 
+					"title": "Addresses", 
+					"type": "object",
+					"required": [
+						"address"
+					],
+					"properties": {
+						"address": {
+							"$id": "#root/data/addresses/address", 
+							"title": "Address", 
+							"type": "array",
+							"default": [],
+							"items":{
+								"$id": "#root/data/addresses/address/items", 
+								"title": "Items", 
+								"type": "object",
+								"required": [
+									"addressInfo"
+								],
+								"properties": {
+									"addressInfo": {
+										"$id": "#root/data/addresses/address/items/addressInfo", 
+										"title": "Addressinfo", 
+										"type": "object",
+										"required": [
+											"addressType",
+											"addressLine1",
+											"addressLine2",
+											"city",
+											"stateProvince",
+											"postalCode",
+											"postalCode4",
+											"countryAbbrev"
+										],
+										"properties": {
+											"addressType": {
+												"$id": "#root/data/addresses/address/items/addressInfo/addressType", 
+												"title": "Addresstype", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETaddressType"
+												],
+												"pattern": "^.*$"
+											},
+											"addressLine1": {
+												"$id": "#root/data/addresses/address/items/addressInfo/addressLine1", 
+												"title": "Addressline1", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETaddressLine1"
+												],
+												"pattern": "^.*$"
+											},
+											"addressLine2": {
+												"$id": "#root/data/addresses/address/items/addressInfo/addressLine2", 
+												"title": "Addressline2", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETaddressLine2"
+												],
+												"pattern": "^.*$"
+											},
+											"city": {
+												"$id": "#root/data/addresses/address/items/addressInfo/city", 
+												"title": "City", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETcity"
+												],
+												"pattern": "^.*$"
+											},
+											"stateProvince": {
+												"$id": "#root/data/addresses/address/items/addressInfo/stateProvince", 
+												"title": "Stateprovince", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETstateProvince"
+												],
+												"pattern": "^.*$"
+											},
+											"postalCode": {
+												"$id": "#root/data/addresses/address/items/addressInfo/postalCode", 
+												"title": "Postalcode", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETpostalCode"
+												],
+												"pattern": "^.*$"
+											},
+											"postalCode4": {
+												"$id": "#root/data/addresses/address/items/addressInfo/postalCode4", 
+												"title": "Postalcode4", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETpostalCode4"
+												],
+												"pattern": "^.*$"
+											},
+											"countryAbbrev": {
+												"$id": "#root/data/addresses/address/items/addressInfo/countryAbbrev", 
+												"title": "Countryabbrev", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETcountryAbbrev"
+												],
+												"pattern": "^.*$"
+											}
+										}
+									}
+
+								}
+							}
+
+						}
+					}
+				}
+,
+				"contacts": {
+					"$id": "#root/data/contacts", 
+					"title": "Contacts", 
+					"type": "object",
+					"required": [
+						"contact"
+					],
+					"properties": {
+						"contact": {
+							"$id": "#root/data/contacts/contact", 
+							"title": "Contact", 
+							"type": "array",
+							"default": [],
+							"items":{
+								"$id": "#root/data/contacts/contact/items", 
+								"title": "Items", 
+								"type": "object",
+								"required": [
+									"contactInfo"
+								],
+								"properties": {
+									"contactInfo": {
+										"$id": "#root/data/contacts/contact/items/contactInfo", 
+										"title": "Contactinfo", 
+										"type": "object",
+										"required": [
+											"contactType",
+											"name",
+											"email",
+											"phone",
+											"fax",
+											"receiveNotifications",
+											"notificationMethod"
+										],
+										"properties": {
+											"contactType": {
+												"$id": "#root/data/contacts/contact/items/contactInfo/contactType", 
+												"title": "Contacttype", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETcontactType"
+												],
+												"pattern": "^.*$"
+											},
+											"name": {
+												"$id": "#root/data/contacts/contact/items/contactInfo/name", 
+												"title": "Name", 
+												"type": "object",
+												"required": [
+													"firstName",
+													"middleName",
+													"lastName"
+												],
+												"properties": {
+													"firstName": {
+														"$id": "#root/data/contacts/contact/items/contactInfo/name/firstName", 
+														"title": "Firstname", 
+														"type": "string",
+														"default": "",
+														"examples": [
+															"testGETfirstName"
+														],
+														"pattern": "^.*$"
+													},
+													"middleName": {
+														"$id": "#root/data/contacts/contact/items/contactInfo/name/middleName", 
+														"title": "Middlename", 
+														"type": "string",
+														"default": "",
+														"examples": [
+															"testGETmiddleName"
+														],
+														"pattern": "^.*$"
+													},
+													"lastName": {
+														"$id": "#root/data/contacts/contact/items/contactInfo/name/lastName", 
+														"title": "Lastname", 
+														"type": "string",
+														"default": "",
+														"examples": [
+															"testGETlastName"
+														],
+														"pattern": "^.*$"
+													}
+												}
+											}
+,
+											"email": {
+												"$id": "#root/data/contacts/contact/items/contactInfo/email", 
+												"title": "Email", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETemail"
+												],
+												"pattern": "^.*$"
+											},
+											"phone": {
+												"$id": "#root/data/contacts/contact/items/contactInfo/phone", 
+												"title": "Phone", 
+												"type": "object",
+												"required": [
+													"areaCode",
+													"number",
+													"extension"
+												],
+												"properties": {
+													"areaCode": {
+														"$id": "#root/data/contacts/contact/items/contactInfo/phone/areaCode", 
+														"title": "Areacode", 
+														"type": "integer",
+														"examples": [
+															444
+														],
+														"default": 0
+													},
+													"number": {
+														"$id": "#root/data/contacts/contact/items/contactInfo/phone/number", 
+														"title": "Number", 
+														"type": "integer",
+														"examples": [
+															44444
+														],
+														"default": 0
+													},
+													"extension": {
+														"$id": "#root/data/contacts/contact/items/contactInfo/phone/extension", 
+														"title": "Extension", 
+														"type": "integer",
+														"examples": [
+															44
+														],
+														"default": 0
+													}
+												}
+											}
+,
+											"fax": {
+												"$id": "#root/data/contacts/contact/items/contactInfo/fax", 
+												"title": "Fax", 
+												"type": "object",
+												"required": [
+													"areaCode",
+													"number"
+												],
+												"properties": {
+													"areaCode": {
+														"$id": "#root/data/contacts/contact/items/contactInfo/fax/areaCode", 
+														"title": "Areacode", 
+														"type": "integer",
+														"examples": [
+															0
+														],
+														"default": 0
+													},
+													"number": {
+														"$id": "#root/data/contacts/contact/items/contactInfo/fax/number", 
+														"title": "Number", 
+														"type": "integer",
+														"examples": [
+															0
+														],
+														"default": 0
+													}
+												}
+											}
+,
+											"receiveNotifications": {
+												"$id": "#root/data/contacts/contact/items/contactInfo/receiveNotifications", 
+												"title": "Receivenotifications", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETreceiveNotifications"
+												],
+												"pattern": "^.*$"
+											},
+											"notificationMethod": {
+												"$id": "#root/data/contacts/contact/items/contactInfo/notificationMethod", 
+												"title": "Notificationmethod", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETnotificationMethod"
+												],
+												"pattern": "^.*$"
+											}
+										}
+									}
+
+								}
+							}
+
+						}
+					}
+				}
+,
+				"notifications": {
+					"$id": "#root/data/notifications", 
+					"title": "Notifications", 
+					"type": "object",
+					"required": [
+						"notification"
+					],
+					"properties": {
+						"notification": {
+							"$id": "#root/data/notifications/notification", 
+							"title": "Notification", 
+							"type": "array",
+							"default": [],
+							"items":{
+								"$id": "#root/data/notifications/notification/items", 
+								"title": "Items", 
+								"type": "object",
+								"required": [
+									"notificationInfo"
+								],
+								"properties": {
+									"notificationInfo": {
+										"$id": "#root/data/notifications/notification/items/notificationInfo", 
+										"title": "Notificationinfo", 
+										"type": "object",
+										"required": [
+											"type"
+										],
+										"properties": {
+											"type": {
+												"$id": "#root/data/notifications/notification/items/notificationInfo/type", 
+												"title": "Type", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testGETtype"
+												],
+												"pattern": "^.*$"
+											}
+										}
+									}
+
+								}
+							}
+
+						}
+					}
+				}
+
+			}
+		}
+
+	}
+}
