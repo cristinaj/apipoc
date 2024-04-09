@@ -34,6 +34,6 @@ public class TestGETPickup {
 		assertEquals(pickup, response.getBody());
 		
 		assertEquals(response.getBody().getData().getShipper().getShipperName(), "testGETshipperName");
-		System.out.println("Request number is: "+response.getBody().getData().getRequestNumber());
+		System.out.println("The request number is: "+response.getBody().getData().getRequestNumber());
 	}
 }
