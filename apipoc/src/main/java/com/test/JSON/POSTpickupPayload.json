@@ -1,0 +1,208 @@
+{
+  "shipper": {
+    "shipperName": "testPOSTshipperName",
+    "accountCode": "testPOSTaccountCode",
+    "shipperAddress": {
+      "addressInfo": {
+        "addressLine1": "testPOSTaddressLine1",
+        "addressLine2": "testPOSTaddressLine2",
+        "city": "testPOSTcity",
+        "stateProvince": "testPOSTstateProvince",
+        "postalCode": "testPOSTpostalCode",
+        "postalCode4": "testPOSTpostalCode4",
+        "countryAbbrev": "testPOSTcountryAbbrev"
+      }
+    },
+    "shipperContacts": {
+      "shipperContact": [
+        {
+          "contactInfo": {
+            "name": {
+              "firstName": "testPOSTfirstName",
+              "middleName": "testPOSTmiddleName",
+              "lastName": "testPOSTlastName"
+            },
+            "email": "testPOSTemail",
+            "phone": {
+              "areaCode": 1,
+              "number": 2,
+              "extension": 3
+            },
+            "fax": {
+              "areaCode": 4,
+              "number": 5
+            },
+            "receiveNotifications": "testPOSTreceiveNotifications",
+            "notificationMethod": "testPOSTnotificationMethod"
+          }
+        }
+      ]
+    }
+  },
+  "requestAction": "testPOSTrequestAction",
+  "paymentTerms": "testPOSTpaymentTerms",
+  "pickupDate": "testPOSTpickupDate",
+  "pickupStartTime": "testPOSTpickupStartTime",
+  "pickupEndTime": "testPOSTpickupEndTime",
+  "totalPieces": "testPOSTtotalPieces",
+  "totalWeight": "testPOSTtotalWeight",
+  "totalHandlingUnits": "testPOSTtotalHandlingUnits",
+  "hazmatFlag": "testPOSThazmatFlag",
+  "expeditedCode": "testPOSTexpeditedCode",
+  "whoRequested": "testPOSTwhoRequested",
+  "trailer": [
+    {
+      "trailerInfo": {
+        "id": "testPOSTid",
+        "length": "testPOSTlength",
+        "type": "testPOSTtype"
+      }
+    }
+  ],
+  "referenceNumbers": {
+    "referenceNumber": [
+      {
+        "referenceInfo": {
+          "type": "PRO",
+          "value": "0062020915",
+          "required": "N",
+          "totalPieces": 1,
+          "totalWeight": 2
+        }
+      },
+      {
+        "referenceInfo": {
+          "type": "PON",
+          "value": "API31082020",
+          "required": "N",
+          "totalPieces": 3,
+          "totalWeight": 4
+        }
+      },
+      {
+        "referenceInfo": {
+          "type": "BOL",
+          "value": "API08312020",
+          "required": "N",
+          "totalPieces": 5,
+          "totalWeight": 6
+        }
+      },
+      {
+        "referenceInfo": {
+          "type": "EUI",
+          "value": "APIE10022020",
+          "required": "N",
+          "totalPieces": 7,
+          "totalWeight": 8
+        }
+      },
+      {
+        "referenceInfo": {
+          "type": "LDN",
+          "value": "APIL10022020",
+          "required": "N",
+          "totalPieces": 9,
+          "totalWeight": 0
+        }
+      },
+      {
+        "referenceInfo": {
+          "type": "SNO",
+          "value": "APIS10022020",
+          "required": "N",
+          "totalPieces": 1,
+          "totalWeight": 2
+        }
+      }
+    ]
+  },
+  "commodities": {
+    "commodity": [
+      {
+        "commodityInfo": {
+          "code": "testPOSTcode",
+          "packageCode": "testPOSTpackageCode",
+          "description": "testPOSTdescription",
+          "hazmat": {
+            "hazmatCode": "testPOSThazmatCode",
+            "hazmatFlag": "testPOSThazmatFlag"
+          },
+          "pieces": "testPOSTpieces",
+          "weight": "testPOSTweight",
+          "nmfcNumber": "testPOSTnmfcNumber",
+          "nmfcSubNumber": "testPOSTnmfcSubNumber"
+        }
+      }
+    ]
+  },
+  "comments": {
+    "comment": [
+      {
+        "commentInfo": {
+          "type": "testPOSTtype",
+          "commentText": "testPOSTcommentText"
+        }
+      }
+    ]
+  },
+  "consignee": {
+    "accountCode": "testPOSTaccountCode",
+    "accountName": "testPOSTaccountName"
+  },
+  "thirdParty": {
+    "accountCode": "testPOSTaccountCode",
+    "accountName": "testPOSTaccountName"
+  },
+  "addresses": {
+    "address": [
+      {
+        "addressInfo": {
+          "addressType": "testPOSTaddressType",
+          "addressLine1": "testPOSTaddressLine1",
+          "addressLine2": "testPOSTaddressLine2",
+          "city": "testPOSTcity",
+          "stateProvince": "testPOSTstateProvince",
+          "postalCode": "testPOSTpostalCode",
+          "postalCode4": "testPOSTpostalCode4",
+          "countryAbbrev": "testPOSTcountryAbbrev"
+        }
+      }
+    ]
+  },
+  "contacts": {
+    "contact": [
+      {
+        "contactInfo": {
+          "contactType": "testPOSTcontactType",
+          "name": {
+            "firstName": "testPOSTfirstName",
+            "middleName": "testPOSTmiddleName",
+            "lastName": "testPOSTlastName"
+          },
+          "email": "testPOSTemail",
+          "phone": {
+            "areaCode": 444,
+            "number": 44444,
+            "extension": 44
+          },
+          "fax": {
+            "areaCode": 1,
+            "number": 2
+          },
+          "receiveNotifications": "testPOSTreceiveNotifications",
+          "notificationMethod": "testPOSTnotificationMethod"
+        }
+      }
+    ]
+  },
+  "notifications": {
+    "notification": [
+      {
+        "notificationInfo": {
+          "type": "testPOSTtype"
+        }
+      }
+    ]
+  }
+}

@@ -1,36 +1,39 @@
 package apipoc.apipoc;
 
 import org.junit.Test;
-import org.junit.Before;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
-import com.test.apipoc.models.Pickup;
-import com.test.apipoc.helpers.IRestResponse;
-import com.test.apipoc.helpers.services.PickupServiceHelper;
+import com.test.helpers.IRestResponse;
+import com.test.helpers.payloads.PickupPayloadHelper;
+import com.test.helpers.services.PickupServiceHelper;
+import com.test.models.PickupGetResponse;
+import com.test.constants.ContentType;
 
-//import com.test.apipoc.model.User;
+import io.restassured.module.jsv.JsonSchemaValidator;
 
 
 public class TestGETPickup {
 
-	private PickupServiceHelper pickupServiceHelper;
-	//private User user;
-	
-	@Before
-	public void init() {
-		pickupServiceHelper = new PickupServiceHelper();
-		//user = new User(configManager.getValue("user.clientId"),configManager.getValue("user.clientSecret"), configManager.getValue("user.userId"));
-	}
+	private PickupServiceHelper pickupServiceHelper = new PickupServiceHelper();
 	
 	@Test
 	public void testGetPickup() {
+		
 		String requestNumber = "1234";
-		//pickupServiceHelper.authenticateUser(user);
-		IRestResponse<Pickup> pickupResponse = pickupServiceHelper.getPickup(requestNumber);
-		assertNotNull("Account list is not empty", pickupResponse);
-		assertEquals(pickupResponse.getStatusCode(), 200);
-		assertEquals(pickupResponse.getBody().getShipper().getShipperName(), "test1GET");
-		System.out.println("Shipper name is: "+pickupResponse.getBody().getShipper().getShipperName());
+
+		IRestResponse<PickupGetResponse> response = pickupServiceHelper.getPickup(requestNumber);
+		
+		assertEquals(response.getStatusCode(), 200);
+		
+		assertEquals(response.getContentType(), ContentType.JSON_UTF8);
+		
+		response.getAssertBody().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("GETpickupSchema.json"));
+		
+		PickupGetResponse pickup = PickupPayloadHelper.readPickupGETResponseFromJSONFile("GETpickupResponse.json");
+		
+		assertEquals(pickup, response.getBody());
+		
+		assertEquals(response.getBody().getData().getShipper().getShipperName(), "testGETshipperName");
+		System.out.println("The request number is: "+response.getBody().getData().getRequestNumber());
 	}
 }

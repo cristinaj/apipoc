@@ -1,0 +1,1257 @@
+{
+	"definitions": {},
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://example.com/object1712138531.json", 
+	"title": "Root", 
+	"type": "object",
+	"required": [
+		"shipper",
+		"requestAction",
+		"paymentTerms",
+		"pickupDate",
+		"pickupStartTime",
+		"pickupEndTime",
+		"totalPieces",
+		"totalWeight",
+		"totalHandlingUnits",
+		"hazmatFlag",
+		"expeditedCode",
+		"whoRequested",
+		"trailer",
+		"referenceNumbers",
+		"commodities",
+		"comments",
+		"consignee",
+		"thirdParty",
+		"addresses",
+		"contacts",
+		"notifications"
+	],
+	"properties": {
+		"shipper": {
+			"$id": "#root/shipper", 
+			"title": "Shipper", 
+			"type": "object",
+			"required": [
+				"shipperName",
+				"accountCode",
+				"shipperAddress",
+				"shipperContacts"
+			],
+			"properties": {
+				"shipperName": {
+					"$id": "#root/shipper/shipperName", 
+					"title": "Shippername", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testPOSTshipperName"
+					],
+					"pattern": "^.*$"
+				},
+				"accountCode": {
+					"$id": "#root/shipper/accountCode", 
+					"title": "Accountcode", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testPOSTaccountCode"
+					],
+					"pattern": "^.*$"
+				},
+				"shipperAddress": {
+					"$id": "#root/shipper/shipperAddress", 
+					"title": "Shipperaddress", 
+					"type": "object",
+					"required": [
+						"addressInfo"
+					],
+					"properties": {
+						"addressInfo": {
+							"$id": "#root/shipper/shipperAddress/addressInfo", 
+							"title": "Addressinfo", 
+							"type": "object",
+							"required": [
+								"addressLine1",
+								"addressLine2",
+								"city",
+								"stateProvince",
+								"postalCode",
+								"postalCode4",
+								"countryAbbrev"
+							],
+							"properties": {
+								"addressLine1": {
+									"$id": "#root/shipper/shipperAddress/addressInfo/addressLine1", 
+									"title": "Addressline1", 
+									"type": "string",
+									"default": "",
+									"examples": [
+										"testPOSTaddressLine1"
+									],
+									"pattern": "^.*$"
+								},
+								"addressLine2": {
+									"$id": "#root/shipper/shipperAddress/addressInfo/addressLine2", 
+									"title": "Addressline2", 
+									"type": "string",
+									"default": "",
+									"examples": [
+										"testPOSTaddressLine2"
+									],
+									"pattern": "^.*$"
+								},
+								"city": {
+									"$id": "#root/shipper/shipperAddress/addressInfo/city", 
+									"title": "City", 
+									"type": "string",
+									"default": "",
+									"examples": [
+										"testPOSTcity"
+									],
+									"pattern": "^.*$"
+								},
+								"stateProvince": {
+									"$id": "#root/shipper/shipperAddress/addressInfo/stateProvince", 
+									"title": "Stateprovince", 
+									"type": "string",
+									"default": "",
+									"examples": [
+										"testPOSTstateProvince"
+									],
+									"pattern": "^.*$"
+								},
+								"postalCode": {
+									"$id": "#root/shipper/shipperAddress/addressInfo/postalCode", 
+									"title": "Postalcode", 
+									"type": "string",
+									"default": "",
+									"examples": [
+										"testPOSTpostalCode"
+									],
+									"pattern": "^.*$"
+								},
+								"postalCode4": {
+									"$id": "#root/shipper/shipperAddress/addressInfo/postalCode4", 
+									"title": "Postalcode4", 
+									"type": "string",
+									"default": "",
+									"examples": [
+										"testPOSTpostalCode4"
+									],
+									"pattern": "^.*$"
+								},
+								"countryAbbrev": {
+									"$id": "#root/shipper/shipperAddress/addressInfo/countryAbbrev", 
+									"title": "Countryabbrev", 
+									"type": "string",
+									"default": "",
+									"examples": [
+										"testPOSTcountryAbbrev"
+									],
+									"pattern": "^.*$"
+								}
+							}
+						}
+
+					}
+				}
+,
+				"shipperContacts": {
+					"$id": "#root/shipper/shipperContacts", 
+					"title": "Shippercontacts", 
+					"type": "object",
+					"required": [
+						"shipperContact"
+					],
+					"properties": {
+						"shipperContact": {
+							"$id": "#root/shipper/shipperContacts/shipperContact", 
+							"title": "Shippercontact", 
+							"type": "array",
+							"default": [],
+							"items":{
+								"$id": "#root/shipper/shipperContacts/shipperContact/items", 
+								"title": "Items", 
+								"type": "object",
+								"required": [
+									"contactInfo"
+								],
+								"properties": {
+									"contactInfo": {
+										"$id": "#root/shipper/shipperContacts/shipperContact/items/contactInfo", 
+										"title": "Contactinfo", 
+										"type": "object",
+										"required": [
+											"name",
+											"email",
+											"phone",
+											"fax",
+											"receiveNotifications",
+											"notificationMethod"
+										],
+										"properties": {
+											"name": {
+												"$id": "#root/shipper/shipperContacts/shipperContact/items/contactInfo/name", 
+												"title": "Name", 
+												"type": "object",
+												"required": [
+													"firstName",
+													"middleName",
+													"lastName"
+												],
+												"properties": {
+													"firstName": {
+														"$id": "#root/shipper/shipperContacts/shipperContact/items/contactInfo/name/firstName", 
+														"title": "Firstname", 
+														"type": "string",
+														"default": "",
+														"examples": [
+															"testPOSTfirstName"
+														],
+														"pattern": "^.*$"
+													},
+													"middleName": {
+														"$id": "#root/shipper/shipperContacts/shipperContact/items/contactInfo/name/middleName", 
+														"title": "Middlename", 
+														"type": "string",
+														"default": "",
+														"examples": [
+															"testPOSTmiddleName"
+														],
+														"pattern": "^.*$"
+													},
+													"lastName": {
+														"$id": "#root/shipper/shipperContacts/shipperContact/items/contactInfo/name/lastName", 
+														"title": "Lastname", 
+														"type": "string",
+														"default": "",
+														"examples": [
+															"testPOSTlastName"
+														],
+														"pattern": "^.*$"
+													}
+												}
+											}
+,
+											"email": {
+												"$id": "#root/shipper/shipperContacts/shipperContact/items/contactInfo/email", 
+												"title": "Email", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testPOSTemail"
+												],
+												"pattern": "^.*$"
+											},
+											"phone": {
+												"$id": "#root/shipper/shipperContacts/shipperContact/items/contactInfo/phone", 
+												"title": "Phone", 
+												"type": "object",
+												"required": [
+													"areaCode",
+													"number",
+													"extension"
+												],
+												"properties": {
+													"areaCode": {
+														"$id": "#root/shipper/shipperContacts/shipperContact/items/contactInfo/phone/areaCode", 
+														"title": "Areacode", 
+														"type": "integer",
+														"examples": [
+															1
+														],
+														"default": 0
+													},
+													"number": {
+														"$id": "#root/shipper/shipperContacts/shipperContact/items/contactInfo/phone/number", 
+														"title": "Number", 
+														"type": "integer",
+														"examples": [
+															2
+														],
+														"default": 0
+													},
+													"extension": {
+														"$id": "#root/shipper/shipperContacts/shipperContact/items/contactInfo/phone/extension", 
+														"title": "Extension", 
+														"type": "integer",
+														"examples": [
+															3
+														],
+														"default": 0
+													}
+												}
+											}
+,
+											"fax": {
+												"$id": "#root/shipper/shipperContacts/shipperContact/items/contactInfo/fax", 
+												"title": "Fax", 
+												"type": "object",
+												"required": [
+													"areaCode",
+													"number"
+												],
+												"properties": {
+													"areaCode": {
+														"$id": "#root/shipper/shipperContacts/shipperContact/items/contactInfo/fax/areaCode", 
+														"title": "Areacode", 
+														"type": "integer",
+														"examples": [
+															4
+														],
+														"default": 0
+													},
+													"number": {
+														"$id": "#root/shipper/shipperContacts/shipperContact/items/contactInfo/fax/number", 
+														"title": "Number", 
+														"type": "integer",
+														"examples": [
+															5
+														],
+														"default": 0
+													}
+												}
+											}
+,
+											"receiveNotifications": {
+												"$id": "#root/shipper/shipperContacts/shipperContact/items/contactInfo/receiveNotifications", 
+												"title": "Receivenotifications", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testPOSTreceiveNotifications"
+												],
+												"pattern": "^.*$"
+											},
+											"notificationMethod": {
+												"$id": "#root/shipper/shipperContacts/shipperContact/items/contactInfo/notificationMethod", 
+												"title": "Notificationmethod", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testPOSTnotificationMethod"
+												],
+												"pattern": "^.*$"
+											}
+										}
+									}
+
+								}
+							}
+
+						}
+					}
+				}
+
+			}
+		}
+,
+		"requestAction": {
+			"$id": "#root/requestAction", 
+			"title": "Requestaction", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"testPOSTrequestAction"
+			],
+			"pattern": "^.*$"
+		},
+		"paymentTerms": {
+			"$id": "#root/paymentTerms", 
+			"title": "Paymentterms", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"testPOSTpaymentTerms"
+			],
+			"pattern": "^.*$"
+		},
+		"pickupDate": {
+			"$id": "#root/pickupDate", 
+			"title": "Pickupdate", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"testPOSTpickupDate"
+			],
+			"pattern": "^.*$"
+		},
+		"pickupStartTime": {
+			"$id": "#root/pickupStartTime", 
+			"title": "Pickupstarttime", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"testPOSTpickupStartTime"
+			],
+			"pattern": "^.*$"
+		},
+		"pickupEndTime": {
+			"$id": "#root/pickupEndTime", 
+			"title": "Pickupendtime", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"testPOSTpickupEndTime"
+			],
+			"pattern": "^.*$"
+		},
+		"totalPieces": {
+			"$id": "#root/totalPieces", 
+			"title": "Totalpieces", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"testPOSTtotalPieces"
+			],
+			"pattern": "^.*$"
+		},
+		"totalWeight": {
+			"$id": "#root/totalWeight", 
+			"title": "Totalweight", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"testPOSTtotalWeight"
+			],
+			"pattern": "^.*$"
+		},
+		"totalHandlingUnits": {
+			"$id": "#root/totalHandlingUnits", 
+			"title": "Totalhandlingunits", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"testPOSTtotalHandlingUnits"
+			],
+			"pattern": "^.*$"
+		},
+		"hazmatFlag": {
+			"$id": "#root/hazmatFlag", 
+			"title": "Hazmatflag", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"testPOSThazmatFlag"
+			],
+			"pattern": "^.*$"
+		},
+		"expeditedCode": {
+			"$id": "#root/expeditedCode", 
+			"title": "Expeditedcode", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"testPOSTexpeditedCode"
+			],
+			"pattern": "^.*$"
+		},
+		"whoRequested": {
+			"$id": "#root/whoRequested", 
+			"title": "Whorequested", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"testPOSTwhoRequested"
+			],
+			"pattern": "^.*$"
+		},
+		"trailer": {
+			"$id": "#root/trailer", 
+			"title": "Trailer", 
+			"type": "array",
+			"default": [],
+			"items":{
+				"$id": "#root/trailer/items", 
+				"title": "Items", 
+				"type": "object",
+				"required": [
+					"trailerInfo"
+				],
+				"properties": {
+					"trailerInfo": {
+						"$id": "#root/trailer/items/trailerInfo", 
+						"title": "Trailerinfo", 
+						"type": "object",
+						"required": [
+							"id",
+							"length",
+							"type"
+						],
+						"properties": {
+							"id": {
+								"$id": "#root/trailer/items/trailerInfo/id", 
+								"title": "Id", 
+								"type": "string",
+								"default": "",
+								"examples": [
+									"testPOSTid"
+								],
+								"pattern": "^.*$"
+							},
+							"length": {
+								"$id": "#root/trailer/items/trailerInfo/length", 
+								"title": "Length", 
+								"type": "string",
+								"default": "",
+								"examples": [
+									"testPOSTlength"
+								],
+								"pattern": "^.*$"
+							},
+							"type": {
+								"$id": "#root/trailer/items/trailerInfo/type", 
+								"title": "Type", 
+								"type": "string",
+								"default": "",
+								"examples": [
+									"testPOSTtype"
+								],
+								"pattern": "^.*$"
+							}
+						}
+					}
+
+				}
+			}
+
+		},
+		"referenceNumbers": {
+			"$id": "#root/referenceNumbers", 
+			"title": "Referencenumbers", 
+			"type": "object",
+			"required": [
+				"referenceNumber"
+			],
+			"properties": {
+				"referenceNumber": {
+					"$id": "#root/referenceNumbers/referenceNumber", 
+					"title": "Referencenumber", 
+					"type": "array",
+					"default": [],
+					"items":{
+						"$id": "#root/referenceNumbers/referenceNumber/items", 
+						"title": "Items", 
+						"type": "object",
+						"required": [
+							"referenceInfo"
+						],
+						"properties": {
+							"referenceInfo": {
+								"$id": "#root/referenceNumbers/referenceNumber/items/referenceInfo", 
+								"title": "Referenceinfo", 
+								"type": "object",
+								"required": [
+									"type",
+									"value",
+									"required",
+									"totalPieces",
+									"totalWeight"
+								],
+								"properties": {
+									"type": {
+										"$id": "#root/referenceNumbers/referenceNumber/items/referenceInfo/type", 
+										"title": "Type", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"PRO"
+										],
+										"pattern": "^.*$"
+									},
+									"value": {
+										"$id": "#root/referenceNumbers/referenceNumber/items/referenceInfo/value", 
+										"title": "Value", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"0062020915"
+										],
+										"pattern": "^.*$"
+									},
+									"required": {
+										"$id": "#root/referenceNumbers/referenceNumber/items/referenceInfo/required", 
+										"title": "Required", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"N"
+										],
+										"pattern": "^.*$"
+									},
+									"totalPieces": {
+										"$id": "#root/referenceNumbers/referenceNumber/items/referenceInfo/totalPieces", 
+										"title": "Totalpieces", 
+										"type": "integer",
+										"examples": [
+											1
+										],
+										"default": 0
+									},
+									"totalWeight": {
+										"$id": "#root/referenceNumbers/referenceNumber/items/referenceInfo/totalWeight", 
+										"title": "Totalweight", 
+										"type": "integer",
+										"examples": [
+											2
+										],
+										"default": 0
+									}
+								}
+							}
+
+						}
+					}
+
+				}
+			}
+		}
+,
+		"commodities": {
+			"$id": "#root/commodities", 
+			"title": "Commodities", 
+			"type": "object",
+			"required": [
+				"commodity"
+			],
+			"properties": {
+				"commodity": {
+					"$id": "#root/commodities/commodity", 
+					"title": "Commodity", 
+					"type": "array",
+					"default": [],
+					"items":{
+						"$id": "#root/commodities/commodity/items", 
+						"title": "Items", 
+						"type": "object",
+						"required": [
+							"commodityInfo"
+						],
+						"properties": {
+							"commodityInfo": {
+								"$id": "#root/commodities/commodity/items/commodityInfo", 
+								"title": "Commodityinfo", 
+								"type": "object",
+								"required": [
+									"code",
+									"packageCode",
+									"description",
+									"hazmat",
+									"pieces",
+									"weight",
+									"nmfcNumber",
+									"nmfcSubNumber"
+								],
+								"properties": {
+									"code": {
+										"$id": "#root/commodities/commodity/items/commodityInfo/code", 
+										"title": "Code", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTcode"
+										],
+										"pattern": "^.*$"
+									},
+									"packageCode": {
+										"$id": "#root/commodities/commodity/items/commodityInfo/packageCode", 
+										"title": "Packagecode", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTpackageCode"
+										],
+										"pattern": "^.*$"
+									},
+									"description": {
+										"$id": "#root/commodities/commodity/items/commodityInfo/description", 
+										"title": "Description", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTdescription"
+										],
+										"pattern": "^.*$"
+									},
+									"hazmat": {
+										"$id": "#root/commodities/commodity/items/commodityInfo/hazmat", 
+										"title": "Hazmat", 
+										"type": "object",
+										"required": [
+											"hazmatCode",
+											"hazmatFlag"
+										],
+										"properties": {
+											"hazmatCode": {
+												"$id": "#root/commodities/commodity/items/commodityInfo/hazmat/hazmatCode", 
+												"title": "Hazmatcode", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testPOSThazmatCode"
+												],
+												"pattern": "^.*$"
+											},
+											"hazmatFlag": {
+												"$id": "#root/commodities/commodity/items/commodityInfo/hazmat/hazmatFlag", 
+												"title": "Hazmatflag", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testPOSThazmatFlag"
+												],
+												"pattern": "^.*$"
+											}
+										}
+									}
+,
+									"pieces": {
+										"$id": "#root/commodities/commodity/items/commodityInfo/pieces", 
+										"title": "Pieces", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTpieces"
+										],
+										"pattern": "^.*$"
+									},
+									"weight": {
+										"$id": "#root/commodities/commodity/items/commodityInfo/weight", 
+										"title": "Weight", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTweight"
+										],
+										"pattern": "^.*$"
+									},
+									"nmfcNumber": {
+										"$id": "#root/commodities/commodity/items/commodityInfo/nmfcNumber", 
+										"title": "Nmfcnumber", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTnmfcNumber"
+										],
+										"pattern": "^.*$"
+									},
+									"nmfcSubNumber": {
+										"$id": "#root/commodities/commodity/items/commodityInfo/nmfcSubNumber", 
+										"title": "Nmfcsubnumber", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTnmfcSubNumber"
+										],
+										"pattern": "^.*$"
+									}
+								}
+							}
+
+						}
+					}
+
+				}
+			}
+		}
+,
+		"comments": {
+			"$id": "#root/comments", 
+			"title": "Comments", 
+			"type": "object",
+			"required": [
+				"comment"
+			],
+			"properties": {
+				"comment": {
+					"$id": "#root/comments/comment", 
+					"title": "Comment", 
+					"type": "array",
+					"default": [],
+					"items":{
+						"$id": "#root/comments/comment/items", 
+						"title": "Items", 
+						"type": "object",
+						"required": [
+							"commentInfo"
+						],
+						"properties": {
+							"commentInfo": {
+								"$id": "#root/comments/comment/items/commentInfo", 
+								"title": "Commentinfo", 
+								"type": "object",
+								"required": [
+									"type",
+									"commentText"
+								],
+								"properties": {
+									"type": {
+										"$id": "#root/comments/comment/items/commentInfo/type", 
+										"title": "Type", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTtype"
+										],
+										"pattern": "^.*$"
+									},
+									"commentText": {
+										"$id": "#root/comments/comment/items/commentInfo/commentText", 
+										"title": "Commenttext", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTcommentText"
+										],
+										"pattern": "^.*$"
+									}
+								}
+							}
+
+						}
+					}
+
+				}
+			}
+		}
+,
+		"consignee": {
+			"$id": "#root/consignee", 
+			"title": "Consignee", 
+			"type": "object",
+			"required": [
+				"accountCode",
+				"accountName"
+			],
+			"properties": {
+				"accountCode": {
+					"$id": "#root/consignee/accountCode", 
+					"title": "Accountcode", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testPOSTaccountCode"
+					],
+					"pattern": "^.*$"
+				},
+				"accountName": {
+					"$id": "#root/consignee/accountName", 
+					"title": "Accountname", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testPOSTaccountName"
+					],
+					"pattern": "^.*$"
+				}
+			}
+		}
+,
+		"thirdParty": {
+			"$id": "#root/thirdParty", 
+			"title": "Thirdparty", 
+			"type": "object",
+			"required": [
+				"accountCode",
+				"accountName"
+			],
+			"properties": {
+				"accountCode": {
+					"$id": "#root/thirdParty/accountCode", 
+					"title": "Accountcode", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testPOSTaccountCode"
+					],
+					"pattern": "^.*$"
+				},
+				"accountName": {
+					"$id": "#root/thirdParty/accountName", 
+					"title": "Accountname", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"testPOSTaccountName"
+					],
+					"pattern": "^.*$"
+				}
+			}
+		}
+,
+		"addresses": {
+			"$id": "#root/addresses", 
+			"title": "Addresses", 
+			"type": "object",
+			"required": [
+				"address"
+			],
+			"properties": {
+				"address": {
+					"$id": "#root/addresses/address", 
+					"title": "Address", 
+					"type": "array",
+					"default": [],
+					"items":{
+						"$id": "#root/addresses/address/items", 
+						"title": "Items", 
+						"type": "object",
+						"required": [
+							"addressInfo"
+						],
+						"properties": {
+							"addressInfo": {
+								"$id": "#root/addresses/address/items/addressInfo", 
+								"title": "Addressinfo", 
+								"type": "object",
+								"required": [
+									"addressType",
+									"addressLine1",
+									"addressLine2",
+									"city",
+									"stateProvince",
+									"postalCode",
+									"postalCode4",
+									"countryAbbrev"
+								],
+								"properties": {
+									"addressType": {
+										"$id": "#root/addresses/address/items/addressInfo/addressType", 
+										"title": "Addresstype", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTaddressType"
+										],
+										"pattern": "^.*$"
+									},
+									"addressLine1": {
+										"$id": "#root/addresses/address/items/addressInfo/addressLine1", 
+										"title": "Addressline1", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTaddressLine1"
+										],
+										"pattern": "^.*$"
+									},
+									"addressLine2": {
+										"$id": "#root/addresses/address/items/addressInfo/addressLine2", 
+										"title": "Addressline2", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTaddressLine2"
+										],
+										"pattern": "^.*$"
+									},
+									"city": {
+										"$id": "#root/addresses/address/items/addressInfo/city", 
+										"title": "City", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTcity"
+										],
+										"pattern": "^.*$"
+									},
+									"stateProvince": {
+										"$id": "#root/addresses/address/items/addressInfo/stateProvince", 
+										"title": "Stateprovince", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTstateProvince"
+										],
+										"pattern": "^.*$"
+									},
+									"postalCode": {
+										"$id": "#root/addresses/address/items/addressInfo/postalCode", 
+										"title": "Postalcode", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTpostalCode"
+										],
+										"pattern": "^.*$"
+									},
+									"postalCode4": {
+										"$id": "#root/addresses/address/items/addressInfo/postalCode4", 
+										"title": "Postalcode4", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTpostalCode4"
+										],
+										"pattern": "^.*$"
+									},
+									"countryAbbrev": {
+										"$id": "#root/addresses/address/items/addressInfo/countryAbbrev", 
+										"title": "Countryabbrev", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTcountryAbbrev"
+										],
+										"pattern": "^.*$"
+									}
+								}
+							}
+
+						}
+					}
+
+				}
+			}
+		}
+,
+		"contacts": {
+			"$id": "#root/contacts", 
+			"title": "Contacts", 
+			"type": "object",
+			"required": [
+				"contact"
+			],
+			"properties": {
+				"contact": {
+					"$id": "#root/contacts/contact", 
+					"title": "Contact", 
+					"type": "array",
+					"default": [],
+					"items":{
+						"$id": "#root/contacts/contact/items", 
+						"title": "Items", 
+						"type": "object",
+						"required": [
+							"contactInfo"
+						],
+						"properties": {
+							"contactInfo": {
+								"$id": "#root/contacts/contact/items/contactInfo", 
+								"title": "Contactinfo", 
+								"type": "object",
+								"required": [
+									"contactType",
+									"name",
+									"email",
+									"phone",
+									"fax",
+									"receiveNotifications",
+									"notificationMethod"
+								],
+								"properties": {
+									"contactType": {
+										"$id": "#root/contacts/contact/items/contactInfo/contactType", 
+										"title": "Contacttype", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTcontactType"
+										],
+										"pattern": "^.*$"
+									},
+									"name": {
+										"$id": "#root/contacts/contact/items/contactInfo/name", 
+										"title": "Name", 
+										"type": "object",
+										"required": [
+											"firstName",
+											"middleName",
+											"lastName"
+										],
+										"properties": {
+											"firstName": {
+												"$id": "#root/contacts/contact/items/contactInfo/name/firstName", 
+												"title": "Firstname", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testPOSTfirstName"
+												],
+												"pattern": "^.*$"
+											},
+											"middleName": {
+												"$id": "#root/contacts/contact/items/contactInfo/name/middleName", 
+												"title": "Middlename", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testPOSTmiddleName"
+												],
+												"pattern": "^.*$"
+											},
+											"lastName": {
+												"$id": "#root/contacts/contact/items/contactInfo/name/lastName", 
+												"title": "Lastname", 
+												"type": "string",
+												"default": "",
+												"examples": [
+													"testPOSTlastName"
+												],
+												"pattern": "^.*$"
+											}
+										}
+									}
+,
+									"email": {
+										"$id": "#root/contacts/contact/items/contactInfo/email", 
+										"title": "Email", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTemail"
+										],
+										"pattern": "^.*$"
+									},
+									"phone": {
+										"$id": "#root/contacts/contact/items/contactInfo/phone", 
+										"title": "Phone", 
+										"type": "object",
+										"required": [
+											"areaCode",
+											"number",
+											"extension"
+										],
+										"properties": {
+											"areaCode": {
+												"$id": "#root/contacts/contact/items/contactInfo/phone/areaCode", 
+												"title": "Areacode", 
+												"type": "integer",
+												"examples": [
+													444
+												],
+												"default": 0
+											},
+											"number": {
+												"$id": "#root/contacts/contact/items/contactInfo/phone/number", 
+												"title": "Number", 
+												"type": "integer",
+												"examples": [
+													44444
+												],
+												"default": 0
+											},
+											"extension": {
+												"$id": "#root/contacts/contact/items/contactInfo/phone/extension", 
+												"title": "Extension", 
+												"type": "integer",
+												"examples": [
+													44
+												],
+												"default": 0
+											}
+										}
+									}
+,
+									"fax": {
+										"$id": "#root/contacts/contact/items/contactInfo/fax", 
+										"title": "Fax", 
+										"type": "object",
+										"required": [
+											"areaCode",
+											"number"
+										],
+										"properties": {
+											"areaCode": {
+												"$id": "#root/contacts/contact/items/contactInfo/fax/areaCode", 
+												"title": "Areacode", 
+												"type": "integer",
+												"examples": [
+													1
+												],
+												"default": 0
+											},
+											"number": {
+												"$id": "#root/contacts/contact/items/contactInfo/fax/number", 
+												"title": "Number", 
+												"type": "integer",
+												"examples": [
+													2
+												],
+												"default": 0
+											}
+										}
+									}
+,
+									"receiveNotifications": {
+										"$id": "#root/contacts/contact/items/contactInfo/receiveNotifications", 
+										"title": "Receivenotifications", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTreceiveNotifications"
+										],
+										"pattern": "^.*$"
+									},
+									"notificationMethod": {
+										"$id": "#root/contacts/contact/items/contactInfo/notificationMethod", 
+										"title": "Notificationmethod", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTnotificationMethod"
+										],
+										"pattern": "^.*$"
+									}
+								}
+							}
+
+						}
+					}
+
+				}
+			}
+		}
+,
+		"notifications": {
+			"$id": "#root/notifications", 
+			"title": "Notifications", 
+			"type": "object",
+			"required": [
+				"notification"
+			],
+			"properties": {
+				"notification": {
+					"$id": "#root/notifications/notification", 
+					"title": "Notification", 
+					"type": "array",
+					"default": [],
+					"items":{
+						"$id": "#root/notifications/notification/items", 
+						"title": "Items", 
+						"type": "object",
+						"required": [
+							"notificationInfo"
+						],
+						"properties": {
+							"notificationInfo": {
+								"$id": "#root/notifications/notification/items/notificationInfo", 
+								"title": "Notificationinfo", 
+								"type": "object",
+								"required": [
+									"type"
+								],
+								"properties": {
+									"type": {
+										"$id": "#root/notifications/notification/items/notificationInfo/type", 
+										"title": "Type", 
+										"type": "string",
+										"default": "",
+										"examples": [
+											"testPOSTtype"
+										],
+										"pattern": "^.*$"
+									}
+								}
+							}
+
+						}
+					}
+
+				}
+			}
+		}
+
+	}
+}
