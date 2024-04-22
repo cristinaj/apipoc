@@ -1,0 +1,782 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome5",
+    "definitions": {
+        "Welcome5": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "_id": {
+                    "$ref": "#/definitions/ID"
+                },
+                "shipments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Shipment"
+                    }
+                },
+                "datetime": {
+                    "type": "string",
+                    "format": "yyyy-MM-dd'T'HH:mm:ss.SSSSSS"
+                },
+                "feed-source": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "_id",
+                "datetime",
+                "feed-source",
+                "shipments"
+            ],
+            "title": "Welcome5"
+        },
+        "ID": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "$oid": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "$oid"
+            ],
+            "title": "ID"
+        },
+        "Shipment": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Shipment": {
+                    "$ref": "#/definitions/ShipmentClass"
+                }
+            },
+            "required": [
+                "Shipment"
+            ],
+            "title": "Shipment"
+        },
+        "ShipmentClass": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Consignment": {
+                    "$ref": "#/definitions/Consignment"
+                },
+                "DocumentReference": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/DocumentReference"
+                    }
+                }
+            },
+            "required": [
+                "Consignment"
+            ],
+            "title": "ShipmentClass"
+        },
+        "Consignment": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ConsignorParty": {
+                    "$ref": "#/definitions/ConsignorParty"
+                },
+                "FirstArrivalPortLocation": {
+                    "$ref": "#/definitions/FirstArrivalPortLocation"
+                },
+                "GrossWeightMeasure": {
+                    "type": "integer"
+                },
+                "CarrierAssignedID": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "ConsigneeParty": {
+                    "$ref": "#/definitions/ConsigneeParty"
+                },
+                "TransportHandlingUnit": {
+                    "$ref": "#/definitions/TransportHandlingUnit"
+                },
+                "TotalTransportHandlingUnitQuantity": {
+                    "type": "integer"
+                },
+                "RequestedPickupTransportEvent": {
+                    "$ref": "#/definitions/RequestedPickupTransportEvent"
+                },
+                "HazardousRiskIndicator": {
+                    "type": "string"
+                },
+                "TransportExecutionStatusCode": {
+                    "type": "string"
+                },
+                "StatusLocation": {
+                    "$ref": "#/definitions/StatusLocation"
+                },
+                "TransportEvent": {
+                    "$ref": "#/definitions/TransportEvent"
+                },
+                "TotalGoodsItemQuantity": {
+                    "type": "integer"
+                },
+                "OriginalDespatchParty": {
+                    "$ref": "#/definitions/OriginalDespatchParty"
+                },
+                "WeightStatement": {
+                    "$ref": "#/definitions/WeightStatement"
+                },
+                "PickupRequestActionCode": {
+                    "type": "string"
+                },
+                "PickupRequestorContact": {
+                    "$ref": "#/definitions/PickupRequestorContact"
+                },
+                "iSeriesStopTransportEvent": {
+                    "$ref": "#/definitions/ISeriesStopTransportEvent"
+                },
+                "CarrierServiceInstructions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "PegaStopTransportEvent": {
+                	"$ref": "#/definitions/PegaStopTransportEvent"	
+                }
+            },
+            "required": [
+                "CarrierAssignedID",
+                "CarrierServiceInstructions",
+                "ConsigneeParty",
+                "ConsignorParty",
+                "FirstArrivalPortLocation",
+                "GrossWeightMeasure",
+                "HazardousRiskIndicator",
+                "OriginalDespatchParty",
+                "PickupRequestActionCode",
+                "PickupRequestorContact",
+                "RequestedPickupTransportEvent",
+                "TotalGoodsItemQuantity",
+                "TotalTransportHandlingUnitQuantity",
+                "TransportEvent",
+                "TransportExecutionStatusCode",
+                "TransportHandlingUnit",
+                "WeightStatement",
+                "iSeriesStopTransportEvent"
+            ],
+            "title": "Consignment"
+        },
+        "ConsigneeParty": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Party": {
+                    "$ref": "#/definitions/ConsigneePartyParty"
+                }
+            },
+            "required": [
+                "Party"
+            ],
+            "title": "ConsigneeParty"
+        },
+        "ConsigneePartyParty": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "PostalAddress": {
+                    "$ref": "#/definitions/Address"
+                },
+                "Contact": {
+                    "$ref": "#/definitions/Contact"
+                }
+            },
+            "required": [
+                "Contact",
+                "PostalAddress"
+            ],
+            "title": "ConsigneePartyParty"
+        },
+        "Contact": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "ElectronicMail": {
+                    "type": "string"
+                },
+                "Telephone": {
+                    "type": "string"
+                },
+                "ReceiveNotificationCode": {
+                    "type": "string"
+                },
+                "TeleFax": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ElectronicMail",
+                "Name",
+                "Telephone"
+            ],
+            "title": "Contact"
+        },
+        "AddressLine": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Line": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "Line"
+            ],
+            "title": "AddressLine"
+        },
+        "Country": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "IdentificationCode": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "IdentificationCode"
+            ],
+            "title": "Country"
+        },
+        "ConsignorParty": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Party": {
+                    "$ref": "#/definitions/ConsignorPartyParty"
+                }
+            },
+            "required": [
+                "Party"
+            ],
+            "title": "ConsignorParty"
+        },
+        "ConsignorPartyParty": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "PartyIdentification": {
+                    "$ref": "#/definitions/PartyIdentification"
+                },
+                "PartyName": {
+                    "$ref": "#/definitions/PartyName"
+                },
+                "PostalAddress": {
+                    "$ref": "#/definitions/Address"
+                }
+            },
+            "required": [
+                "PartyIdentification",
+                "PartyName",
+                "PostalAddress"
+            ],
+            "title": "ConsignorPartyParty"
+        },
+        "PartyIdentification": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ID": {
+                    "type": "string",
+                    "format": "integer"
+                }
+            },
+            "required": [
+                "ID"
+            ],
+            "title": "PartyIdentification"
+        },
+        "PartyName": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Name"
+            ],
+            "title": "PartyName"
+        },
+        "FirstArrivalPortLocation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ID": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Contact": {
+                    "$ref": "#/definitions/Contact"
+                },
+                "LocationCoordinate": {
+                    "$ref": "#/definitions/LocationCoordinate"
+                },
+                "Address": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Address"
+                    }
+                }
+            },
+            "required": [
+                "Address",
+                "Contact",
+                "Description",
+                "ID",
+                "LocationCoordinate",
+                "Name"
+            ],
+            "title": "FirstArrivalPortLocation"
+        },
+        "Address": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "AddressLine": {
+                    "$ref": "#/definitions/AddressLine"
+                },
+                "CityName": {
+                    "type": "string"
+                },
+                "PostalZone": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "CountrySubentity": {
+                    "type": "string"
+                },
+                "Country": {
+                    "$ref": "#/definitions/Country"
+                },
+                "CountrySubentityCode": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "AddressLine",
+                "CityName",
+                "Country",
+                "PostalZone"
+            ],
+            "title": "Address"
+        },
+        "LocationCoordinate": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "GeoLocation": {
+                    "$ref": "#/definitions/GeoLocation"
+                }
+            },
+            "required": [
+                "GeoLocation"
+            ],
+            "title": "LocationCoordinate"
+        },
+        "GeoLocation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Coordinates": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Coordinates",
+                "type"
+            ],
+            "title": "GeoLocation"
+        },
+        "OriginalDespatchParty": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Party": {
+                    "$ref": "#/definitions/OriginalDespatchPartyParty"
+                }
+            },
+            "required": [
+                "Party"
+            ],
+            "title": "OriginalDespatchParty"
+        },
+        "OriginalDespatchPartyParty": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "PartyIdentification": {
+                    "$ref": "#/definitions/PartyIdentification"
+                }
+            },
+            "required": [
+                "PartyIdentification"
+            ],
+            "title": "OriginalDespatchPartyParty"
+        },
+        "PickupRequestorContact": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ID": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ID",
+                "Name"
+            ],
+            "title": "PickupRequestorContact"
+        },
+        "RequestedPickupTransportEvent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Period": {
+                    "$ref": "#/definitions/Period"
+                },
+                "OccurrenceDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "OccurrenceTime": {
+                    "type": "string",
+                    "format": "time"
+                }
+            },
+            "required": [
+                "OccurrenceDate",
+                "OccurrenceTime",
+                "Period"
+            ],
+            "title": "RequestedPickupTransportEvent"
+        },
+        "Period": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "StartDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "EndDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "StartTime": {
+                    "type": "string",
+                    "format": "time"
+                },
+                "EndTime": {
+                    "type": "string",
+                    "format": "time"
+                }
+            },
+            "required": [
+                "EndDate",
+                "EndTime",
+                "StartDate",
+                "StartTime"
+            ],
+            "title": "Period"
+        },
+        "StatusLocation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "StatusLocationOccurrenceDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "StatusLocationOccurrenceTime": {
+                    "type": "string",
+                    "format": "time"
+                }
+            },
+            "required": [
+                "StatusLocationOccurrenceDate",
+                "StatusLocationOccurrenceTime"
+            ],
+            "title": "StatusLocation"
+        },
+        "TransportEvent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ID": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "Location": {
+                    "$ref": "#/definitions/Location"
+                },
+                "CurrentStatus": {
+                    "$ref": "#/definitions/CurrentStatus"
+                },
+                "TransportEventTypeCode": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "CurrentStatus",
+                "Description",
+                "ID",
+                "Location",
+                "TransportEventTypeCode"
+            ],
+            "title": "TransportEvent"
+        },
+        "CurrentStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ReferenceDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "ReferenceTime": {
+                    "type": "string",
+                    "format": "time"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "MilestoneGrouping": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Description",
+                "MilestoneGrouping",
+                "ReferenceDate",
+                "ReferenceTime"
+            ],
+            "title": "CurrentStatus"
+        },
+        "Location": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ID": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Description",
+                "ID"
+            ],
+            "title": "Location"
+        },
+        "TransportHandlingUnit": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "GoodsItem": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/GoodsItem"
+                    }
+                }
+            },
+            "required": [
+                "GoodsItem"
+            ],
+            "title": "TransportHandlingUnit"
+        },
+        "GoodsItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ID": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "Quantity": {
+                    "type": "integer"
+                },
+                "GrossWeightMeasure": {
+                    "type": "integer"
+                },
+                "Item": {
+                    "$ref": "#/definitions/Item"
+                }
+            },
+            "required": [
+                "Description",
+                "GrossWeightMeasure",
+                "ID",
+                "Item",
+                "Quantity"
+            ],
+            "title": "GoodsItem"
+        },
+        "Item": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "CommodityClassification": {
+                    "$ref": "#/definitions/CommodityClassification"
+                }
+            },
+            "required": [
+                "CommodityClassification"
+            ],
+            "title": "Item"
+        },
+        "CommodityClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "CommodityCode": {
+                    "type": "string",
+                    "format": "integer"
+                }
+            },
+            "required": [
+                "CommodityCode"
+            ],
+            "title": "CommodityClassification"
+        },
+        "WeightStatement": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "WeightStatementTypeCode": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "WeighingParty": {
+                    "$ref": "#/definitions/WeighingParty"
+                }
+            },
+            "required": [
+                "WeighingParty",
+                "WeightStatementTypeCode"
+            ],
+            "title": "WeightStatement"
+        },
+        "WeighingParty": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Party": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PartyElement"
+                    }
+                }
+            },
+            "required": [
+                "Party"
+            ],
+            "title": "WeighingParty"
+        },
+        "PartyElement": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "PartyName": {
+                    "$ref": "#/definitions/PartyName"
+                }
+            },
+            "required": [
+                "PartyName"
+            ],
+            "title": "PartyElement"
+        },
+        "ISeriesStopTransportEvent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ID": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "TransportEventTypeCode": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ID",
+                "TransportEventTypeCode"
+            ],
+            "title": "ISeriesStopTransportEvent"
+        },
+        "DocumentReference": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "DocumentType": {
+                    "type": "string"
+                },
+                "ID": {
+                    "type": "string",
+                    "format": "integer"
+                }
+            },
+            "required": [
+                "DocumentType",
+                "ID"
+            ],
+            "title": "DocumentReference"
+        },
+        "PegaStopTransportEvent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ID": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Description",
+                "ID"
+            ],
+            "title": "PegaStopTransportEvent"
+        }
+    }
+}

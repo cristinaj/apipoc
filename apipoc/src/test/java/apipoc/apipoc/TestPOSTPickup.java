@@ -1,15 +1,16 @@
 package apipoc.apipoc;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.test.helpers.IRestResponse;
 import com.test.helpers.payloads.PickupPayloadHelper;
 import com.test.helpers.services.PickupServiceHelper;
 import com.test.models.Pickup;
 
-import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertEquals;
 
-public class TestPOSTPickup {
+public class TestPOSTPickup{
 
 	private PickupServiceHelper pickupServiceHelper;
 	//private User user;

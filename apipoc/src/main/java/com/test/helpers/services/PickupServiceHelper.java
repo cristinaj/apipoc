@@ -22,6 +22,7 @@ public class PickupServiceHelper extends ServiceHelper {
 		Response response = request
 				.body(newPickup)
 				.post(Endpoints.CREATE_PICKUP)
+				//.then().log().all().extract().response()
 				.andReturn();
 		
 		return new RestResponse<Pickup>(Pickup.class, response);

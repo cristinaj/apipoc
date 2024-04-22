@@ -1,7 +1,7 @@
 package apipoc.apipoc;
 
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.test.helpers.IRestResponse;
 import com.test.helpers.payloads.PickupPayloadHelper;
@@ -23,7 +23,7 @@ public class TestGETPickup {
 
 		IRestResponse<PickupGetResponse> response = pickupServiceHelper.getPickup(requestNumber);
 		
-		assertEquals(response.getStatusCode(), 200);
+		assertEquals(200, response.getStatusCode());
 		
 		assertEquals(response.getContentType(), ContentType.JSON_UTF8);
 		
