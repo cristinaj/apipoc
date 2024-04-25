@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "object",
+      "properties": {
+        "$oid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "$oid"
+      ]
+    },
+    "shipments": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "Shipment": {
+              "type": "object",
+              "properties": {
+                "Consignment": {
+                  "type": "object",
+                  "properties": {
+                    "CarrierAssignedID": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "CarrierAssignedID"
+                  ]
+                },
+                "ReconciledShipmentID": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Consignment",
+                "ReconciledShipmentID"
+              ]
+            }
+          },
+          "required": [
+            "Shipment"
+          ]
+        }
+      ]
+    },
+    "datetime": {
+      "type": "string"
+    },
+    "feed-source": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "_id",
+    "shipments",
+    "datetime",
+    "feed-source"
+  ]
+}
