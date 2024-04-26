@@ -13,7 +13,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.test.helpers.services.UBLServiceHelper;
-import com.test.utils.DirectoryParser;
+import com.test.utils.IOutils;
 import com.test.utils.JsonParser;
 
 import apipoc.apipoc.BaseTest;
@@ -50,6 +50,6 @@ public class ConvertorStatusCode {
 	}
 	
 	private static Stream<Object> testUBLtoNonUBL() {
-		return DirectoryParser.getFilesNameFromDirectory(directory);
+		return IOutils.getFilesNameFromDirectory(directory);
 	}
 }
