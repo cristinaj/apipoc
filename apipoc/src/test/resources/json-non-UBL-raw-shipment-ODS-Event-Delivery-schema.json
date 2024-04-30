@@ -1,0 +1,158 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "object",
+      "properties": {
+        "$oid": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "$oid"
+      ]
+    },
+    "shipments": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "properties": {
+          "Shipment": {
+            "type": "object",
+            "properties": {
+              "Consignment": {
+                "type": "object",
+                "properties": {
+                  "ID": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "ActualDeliveryTransportEvent": {
+                    "type": "object",
+                    "properties": {
+                      "OccurrenceDate": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "OccurrenceTime": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "StatusReason": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "OccurrenceDate",
+                      "OccurrenceTime",
+                      "StatusReason"
+                    ]
+                  },
+                  "TransportEvent": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "required": [
+                        "ID",
+                        "Description",
+                        "TransportEventTypeCode"
+                      ],
+                      "properties": {
+                        "ID": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "Description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "CurrentStatus": {
+                          "type": "object",
+                          "properties": {
+                            "Description": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "ReferenceDate": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "ReferenceTime": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "StatusReason": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "StatusReasonCode": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "MilestoneGrouping": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "StatusException": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "Description",
+                            "ReferenceDate",
+                            "ReferenceTime",
+                            "StatusReason",
+                            "StatusReasonCode",
+                            "MilestoneGrouping",
+                            "StatusException"
+                          ]
+                        },
+                        "TransportEventTypeCode": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "ID",
+                  "TransportEvent"
+                ]
+              },
+              "ID": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "Consignment",
+              "ID"
+            ]
+          }
+        }
+      }
+    },
+    "datetime": {
+      "type": "string",
+      "minLength": 1
+    },
+    "feed-source": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "_id",
+    "shipments",
+    "datetime",
+    "feed-source"
+  ]
+}
