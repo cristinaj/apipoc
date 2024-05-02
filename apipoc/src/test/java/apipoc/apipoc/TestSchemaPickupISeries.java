@@ -11,7 +11,6 @@ import java.util.stream.Stream.Builder;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import com.test.helpers.services.UBLServiceHelper;
 import com.test.utils.JsonParser;
@@ -41,7 +40,7 @@ public class TestSchemaPickupISeries {
 		System.out.println(response1.getBody().asPrettyString());
 		//validate with our non-ubl
 		
-		response1.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("new-json-non-UBL-raw-pickup-iseries-schema.json"));
+		response1.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json-non-UBL-raw-pickup-iseries-schema.json"));
 
 	}
 	

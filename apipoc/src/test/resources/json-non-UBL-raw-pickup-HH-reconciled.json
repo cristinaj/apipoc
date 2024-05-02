@@ -15,15 +15,19 @@
     },
     "shipments": {
       "type": "array",
+      "additionalProperties": false,
       "items": [
         {
           "type": "object",
+          "additionalProperties": false,
           "properties": {
             "Shipment": {
               "type": "object",
+              "additionalProperties": false,
               "properties": {
                 "Consignment": {
                   "type": "object",
+                  "additionalProperties": false,
                   "properties": {
                     "CarrierAssignedID": {
                       "type": "string"
@@ -35,11 +39,15 @@
                 },
                 "ReconciledShipmentID": {
                   "type": "string"
+                },
+                "ReconciledShipmentOperation": {
+                  "type": "string"
                 }
               },
               "required": [
                 "Consignment",
-                "ReconciledShipmentID"
+                "ReconciledShipmentID",
+                "ReconciledShipmentOperation"
               ]
             }
           },
