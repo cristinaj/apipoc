@@ -1,59 +1,4 @@
 {
-   "definitions":{
-      
-   },
-   "$schema":"http://json-schema.org/draft-07/schema#",
-   "title":"Root",
-   "type":"object",
-   "required":[
-      "_id",
-      "datetime",
-      "feed-source",
-      "shipments"
-   ],
-   "properties":{
-      "_id":{
-         "title":"_id",
-         "type":"object",
-         "required":[
-            "$oid"
-         ],
-         "properties":{
-            "$oid":{
-               "title":"$oid",
-               "type":"string",
-               "default":"",
-               "pattern":"^.*$"
-            }
-         }
-      },
-      "datetime":{
-         "title":"Datetime",
-         "type":"string",
-         "default":"",
-         "pattern":"^.*$"
-      },
-      "feed-source":{
-         "title":"Feed-source",
-         "type":"string",
-         "default":"",
-         "pattern":"^.*$"
-      },
-      "shipments":{
-         "title":"Shipments",
-         "type":"array",
-         "additionalProperties":false,
-         "default":[
-            
-         ],
-         "items":{
-            "title":"Items",
-            "type":"object",
-            "additionalProperties":false,
-            "required":[
-               "Shipment"
-            ],
-            "properties":{
                "Shipment":{
                   "title":"Shipment",
                   "type":"object",
@@ -1453,8 +1398,4 @@
                      }
                   }
                }
-            }
-         }
-      }
-   }
 }

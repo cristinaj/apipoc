@@ -1,24 +1,4 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Generated schema for Root",
-  "type": "object",
-  "properties": {
-    "_id": {
-      "type": "object",
-      "properties": {
-        "$oid": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "$oid"
-      ]
-    },
-    "shipments": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
           "Shipment": {
             "type": "object",
             "properties": {
@@ -202,23 +182,4 @@
               "ID"
             ]
           }
-        },
-        "required": [
-          "Shipment"
-        ]
-      }
-    },
-    "datetime": {
-      "type": "string"
-    },
-    "feed-source": {
-      "type": "string"
-    }
-  },
-  "required": [
-    "_id",
-    "shipments",
-    "datetime",
-    "feed-source"
-  ]
 }

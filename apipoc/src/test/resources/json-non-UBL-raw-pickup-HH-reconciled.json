@@ -1,26 +1,4 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "properties": {
-    "_id": {
-      "type": "object",
-      "properties": {
-        "$oid": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "$oid"
-      ]
-    },
-    "shipments": {
-      "type": "array",
-      "additionalProperties": false,
-      "items": [
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
             "Shipment": {
               "type": "object",
               "additionalProperties": false,
@@ -50,24 +28,4 @@
                 "ReconciledShipmentOperation"
               ]
             }
-          },
-          "required": [
-            "Shipment"
-          ]
-        }
-      ]
-    },
-    "datetime": {
-      "type": "string"
-    },
-    "feed-source": {
-      "type": "string"
-    }
-  },
-  "required": [
-    "_id",
-    "shipments",
-    "datetime",
-    "feed-source"
-  ]
 }
