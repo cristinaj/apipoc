@@ -36,7 +36,7 @@ public class IOutils {
 	public static void writeToFile(String directoryName, String fileName, String text) {
 		
 		String directoryPath = path + directoryName;
-	    
+
 	    try {
 			FileOutputStream fos = new FileOutputStream(directoryPath+fileName.toString());
 		    DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));

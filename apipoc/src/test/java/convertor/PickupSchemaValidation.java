@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.stream.Stream;
+import java.io.File;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,13 +21,16 @@ import apipoc.apipoc.BaseTest;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.hamcrest.MatcherAssert;
+
+import com.google.gson.Gson; 
 
 @ExtendWith(BaseTest.class)
 public class PickupSchemaValidation {
 
 	private UBLServiceHelper ublServiceHelper = new UBLServiceHelper();
 	private JsonParser jsonParser = new JsonParser();
-	private static String directory = "batch3/json/";
+	private static String directory = "batch1/json/";
 	
 	@ParameterizedTest
 	@MethodSource
@@ -42,9 +46,6 @@ public class PickupSchemaValidation {
 		ArrayList<LinkedHashMap<String, LinkedHashMap>> shipments = jsonResponse.get("shipments");
 		Assert.assertTrue(shipments.size() > 0);
 		
-		LinkedHashMap<String, String> shipment = jsonResponse.get("shipments[0].Shipment");
-		Assert.assertTrue(shipment.size()>0);
-		
 		if(jsonResponse.get("feed-source").equals("pickup-iseries"))
 		{
 			response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json-non-UBL-raw-pickup-iseries-schema.json"));
@@ -54,20 +55,20 @@ public class PickupSchemaValidation {
 				LinkedHashMap entity = shipmentEntry.get("Shipment");
 				Object id = entity.get("ID");
 				if(id==null) {
+					System.out.println("ID null: "+id + " fileName: "+fileName.toString());
+					
+					String shipmentJson = new Gson().toJson(entity,LinkedHashMap.class);
 					Object reconciledShipmentID = entity.get("ReconciledShipmentID");
 					LinkedHashMap consignment = (LinkedHashMap) entity.get("Consignment");
 					Object operationHandHeldEstimatedPickupTransportEvent = consignment.get("OperationHandHeldEstimatedPickupTransportEvent"); 
 					
-					if(operationHandHeldEstimatedPickupTransportEvent !=null) {
-						System.out.println("Boohoo: "+operationHandHeldEstimatedPickupTransportEvent.toString());
-					}
-					
 					if(reconciledShipmentID == null) {
 						if(operationHandHeldEstimatedPickupTransportEvent != null) {
 							System.out.println("It's a pickup HH operational: "+fileName.toString());
-							response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json-non-UBL-raw-pickup-HH-operational.json"));
+							MatcherAssert.assertThat(shipmentJson, JsonSchemaValidator.matchesJsonSchema(new File(System.getProperty("user.dir") + "/src/test/resources/json-non-UBL-raw-pickup-HH-operational.json")));
 						} else {
 							System.out.println("It's a normal pickup HH: "+fileName.toString());
+							MatcherAssert.assertThat(shipmentJson, JsonSchemaValidator.matchesJsonSchema(new File(System.getProperty("user.dir") + "/src/test/resources/json-non-UBL-raw-pickup-HH-schema.json")));
 							response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json-non-UBL-raw-pickup-HH-schema.json"));
 						}
 
