@@ -1,0 +1,242 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "object",
+  "properties": {
+    "shipments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Shipment": {
+            "type": "object",
+            "additionalProperties":false,
+            "properties": {
+              "Consignment": {
+                "type": "object",
+                "properties": {
+                  "ID": {
+                    "type": "string"
+                  },
+                  "TransportHandlingUnit": {
+                    "type": "object",
+                    "additionalProperties":false,
+                    "properties": {
+                      "TransportEquipment": {
+                        "type": "object",
+                        "properties": {
+                          "ID": {
+                            "type": "string"
+                          },
+                          "SizeTypeCode": {
+                            "type": "string"
+                          },
+                          "Information": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "ID",
+                          "SizeTypeCode",
+                          "Information"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "TransportEquipment"
+                    ]
+                  },
+                  "StatusLocation": {
+                    "type": "object",
+                    "additionalProperties":false,
+                    "properties": {
+                      "LocationCoordinate": {
+                        "type": "object",
+                        "properties": {
+                          "GeoLocation": {
+                            "type": "object",
+                            "properties": {
+                              "Coordinates": {
+                                "type": "array",
+                                "items": {}
+                              },
+                              "type": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "Coordinates",
+                              "type"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "GeoLocation"
+                        ]
+                      },
+                      "Description": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "LocationCoordinate",
+                      "Description"
+                    ]
+                  },
+                  "TransportEvent": {
+                    "type": "array",
+                    "additionalProperties":false,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "ID": {
+                          "type": "string"
+                        },
+                        "Description": {
+                          "type": "string"
+                        },
+                        "Location": {
+                          "type": "object",
+                          "properties": {
+                            "ID": {
+                              "type": "string"
+                            },
+                            "Description": {
+                              "type": "string"
+                            },
+                            "Name": {
+                              "type": "string"
+                            },
+                            "Address": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "AddressLine": {
+                                    "type": "object",
+                                    "properties": {
+                                      "Line": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "Line"
+                                    ]
+                                  },
+                                  "PostalZone": {
+                                    "type": "string"
+                                  },
+                                  "CityName": {
+                                    "type": "string"
+                                  },
+                                  "CountrySubentityCode": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "AddressLine",
+                                  "PostalZone",
+                                  "CityName",
+                                  "CountrySubentityCode"
+                                ]
+                              }
+                            }
+                          },
+                          "required": [
+                            "ID",
+                            "Description",
+                            "Name",
+                            "Address"
+                          ]
+                        },
+                        "Contact": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "TeleFax": {
+                                "type": "string"
+                              },
+                              "Telephone": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "TeleFax",
+                              "Telephone"
+                            ]
+                          }
+                        },
+                        "CurrentStatus": {
+                          "type": "object",
+                          "properties": {
+                            "ReferenceDate": {
+                              "type": "string"
+                            },
+                            "ReferenceTime": {
+                              "type": "string"
+                            },
+                            "Description": {
+                              "type": "string"
+                            },
+                            "MilestoneGrouping": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "ReferenceDate",
+                            "ReferenceTime",
+                            "Description",
+                            "MilestoneGrouping"
+                          ]
+                        },
+                        "TransportEventTypeCode": {
+                          "type": "string"
+                        },
+                        "TransportEventTypeDescription": {}
+                      },
+                      "required": [
+                        "ID",
+                        "Description",
+                        "Location",
+                        "Contact",
+                        "CurrentStatus",
+                        "TransportEventTypeCode",
+                        "TransportEventTypeDescription"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "ID",
+                  "TransportHandlingUnit",
+                  "StatusLocation",
+                  "TransportEvent"
+                ]
+              },
+              "ID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Consignment",
+              "ID"
+            ]
+          }
+        },
+        "required": [
+          "Shipment"
+        ]
+      }
+    },
+    "datetime": {
+      "type": "string"
+    },
+    "feed-source": {
+      "type": "string"
+    }
+  }
+}

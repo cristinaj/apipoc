@@ -1,4 +1,27 @@
 {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "object",
+      "properties": {
+        "$oid": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "$oid"
+      ]
+    },
+    "shipments": {
+      "type": "array",
+      "additionalProperties":false,
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "properties": {
           "Shipment": {
             "type": "object",
             "properties": {
@@ -11,6 +34,7 @@
                   },
                   "ConsignorParty": {
                     "type": "object",
+                    "additionalProperties":false,
                     "properties": {
                       "Party": {
                         "type": "object",
@@ -80,14 +104,7 @@
                                   "IdentificationCode"
                                 ]
                               }
-                            },
-                            "required": [
-                              "AddressLine",
-                              "CityName",
-                              "PostalZone",
-                              "CountrySubentity",
-                              "Country"
-                            ]
+                            }
                           }
                         },
                         "required": [
@@ -129,10 +146,6 @@
                               "minLength": 1
                             },
                             "ElectronicMail": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "TeleFax": {
                               "type": "string",
                               "minLength": 1
                             },
@@ -229,6 +242,7 @@
                   },
                   "LastExitPortLocation": {
                     "type": "object",
+                    "additionalProperties":false,
                     "properties": {
                       "ID": {
                         "type": "string",
@@ -256,10 +270,6 @@
                               "minLength": 1
                             },
                             "ElectronicMail": {
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "TeleFax": {
                               "type": "string",
                               "minLength": 1
                             },
@@ -356,6 +366,7 @@
                   },
                   "ConsigneeParty": {
                     "type": "object",
+                    "additionalProperties":false,
                     "properties": {
                       "Party": {
                         "type": "object",
@@ -425,14 +436,7 @@
                                   "IdentificationCode"
                                 ]
                               }
-                            },
-                            "required": [
-                              "AddressLine",
-                              "CityName",
-                              "PostalZone",
-                              "CountrySubentity",
-                              "Country"
-                            ]
+                            }
                           }
                         },
                         "required": [
@@ -450,6 +454,7 @@
                   },
                   "TransportHandlingUnit": {
                     "type": "object",
+                    "additionalProperties":false,
                     "properties": {
                       "GoodsItem": {
                         "type": "array",
@@ -502,7 +507,7 @@
                     "type": "object",
                     "properties": {
                       "OccurrenceDate": {
-                        "type":"string",
+                        "type":["string","object", "null"],
                         "minLength": 1
                       }
                     },
@@ -514,7 +519,7 @@
                     "type": "object",
                     "properties": {
                       "OccurrenceDate": {
-                        "type": ["string","object"],
+                        "type": ["string","object", "null"],
                         "properties": {}
                       }
                     },
@@ -526,7 +531,7 @@
                     "type": "object",
                     "properties": {
                       "OccurrenceDate": {
-                        "type": "string",
+                        "type": ["string","object", "null"],
                         "minLength": 1
                       },
                       "Period": {
@@ -550,11 +555,11 @@
                     "type": "object",
                     "properties": {
                       "OccurrenceDate": {
-                        "type": "string",
+                        "type": ["string","object", "null"],
                         "minLength": 1
                       },
                       "OccurrenceTime": {
-                        "type": "string",
+                        "type": ["string","object", "null"],
                         "minLength": 1
                       }
                     },
@@ -566,7 +571,7 @@
                   "TransportEvent": {
                     "type": "array",
                     "uniqueItems": true,
-                    "minItems": 1,
+                    "minItems": 0,
                     "items": {
                       "required": [
                         "ID",
@@ -622,7 +627,7 @@
                   "ShippingPriorityLevelCode": {
                     "type": "array",
                     "uniqueItems": true,
-                    "minItems": 1,
+                    "minItems": 0,
                     "items": {
                       "properties": {
                         "Description": {
@@ -732,6 +737,7 @@
               },
               "AccountingCustomerParty": {
                 "type": "object",
+                "additionalProperties":false,
                 "properties": {
                   "Party": {
                     "type": "object",
@@ -801,14 +807,7 @@
                               "IdentificationCode"
                             ]
                           }
-                        },
-                        "required": [
-                          "CityName",
-                          "PostalZone",
-                          "CountrySubentity",
-                          "AddressLine",
-                          "Country"
-                        ]
+                        }
                       }
                     },
                     "required": [
@@ -892,12 +891,7 @@
                               "IdentificationCode"
                             ]
                           }
-                        },
-                        "required": [
-                          "CountrySubentity",
-                          "AddressLine",
-                          "Country"
-                        ]
+                        }
                       }
                     },
                     "required": [
@@ -916,4 +910,22 @@
               "ID"
             ]
           }
+        }
+      }
+    },
+    "datetime": {
+      "type": "string",
+      "minLength": 1
+    },
+    "feed-source": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "_id",
+    "shipments",
+    "datetime",
+    "feed-source"
+  ]
 }

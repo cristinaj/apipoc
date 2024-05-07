@@ -49,6 +49,7 @@ public class ShipmentSchemaValidation {
 
         boolean foundShipmentID = false;
         boolean foundConsignorParty = false;
+        boolean foundPegaTransportEvent = false;
 
         // iterate over shipments
         for (LinkedHashMap<String, LinkedHashMap> shipmentEntry : shipments) {
@@ -67,9 +68,15 @@ public class ShipmentSchemaValidation {
                         // ShipmentID is available, set the flag to true
                         foundConsignorParty = true;
                     }
+                    LinkedHashMap<String, Object> pegaTransportEvent = (LinkedHashMap<String, Object>) consignmentPartyMap.get("PegaStopTransportEvent");
+                    if (pegaTransportEvent != null) {
+                        // ShipmentID is available, set the flag to true
+                        foundPegaTransportEvent = true;
+                    }
                 }
             }
             if (foundShipmentID) {
+                String shipmentJson = new Gson().toJson(shipmentMap, LinkedHashMap.class);
                 if (jsonResponse.get("feed-source").equals("ODS")) {
                     if (foundConsignorParty) {
                         response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json-non-UBL-raw-shipment-ODS-ConsignorParty-schema.json"));
@@ -79,8 +86,10 @@ public class ShipmentSchemaValidation {
                 } else if (jsonResponse.get("feed-source").equals("ODS-OFD")) {
                     response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json-non-UBL-raw-shipment-ODS-OFD-schema.json"));
                 } else if (jsonResponse.get("feed-source").equals("Default")) {
-                    String shipmentJson = new Gson().toJson(shipmentMap, LinkedHashMap.class);
-                    MatcherAssert.assertThat(shipmentJson, JsonSchemaValidator.matchesJsonSchema(new File(System.getProperty("user.dir") + "/src/test/resources/json-non-UBL-raw-shipment-default-schema.json")));
+                    if(foundPegaTransportEvent) {
+                        MatcherAssert.assertThat(shipmentJson, JsonSchemaValidator.matchesJsonSchema(new File(System.getProperty("user.dir") + "/src/test/resources/json-non-UBL-raw-shipment-freightbill-HH-schema.json")));
+                    }else
+                        MatcherAssert.assertThat(shipmentJson, JsonSchemaValidator.matchesJsonSchema(new File(System.getProperty("user.dir") + "/src/test/resources/json-non-UBL-raw-shipment-freightbill-LH-schema.json")));
                 }
             } else {
                 System.out.println("IT IS A PICKUP");

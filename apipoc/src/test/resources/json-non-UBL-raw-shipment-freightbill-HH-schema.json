@@ -3,17 +3,6 @@
   "title": "Generated schema for Root",
   "type": "object",
   "properties": {
-    "_id": {
-      "type": "object",
-      "properties": {
-        "$oid": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "$oid"
-      ]
-    },
     "shipments": {
       "type": "array",
       "additionalProperties":false,
@@ -31,23 +20,19 @@
                   "ID": {
                     "type": "string"
                   },
-                  "ActualDeliveryTransportEvent": {
+                  "StatusLocation": {
                     "type": "object",
                     "properties": {
-                      "OccurrenceDate": {
+                      "StatusLocationOccurrenceDate": {
                         "type": "string"
                       },
-                      "OccurrenceTime": {
-                        "type": "string"
-                      },
-                      "StatusReason": {
+                      "StatusLocationOccurrenceTime": {
                         "type": "string"
                       }
                     },
                     "required": [
-                      "OccurrenceDate",
-                      "OccurrenceTime",
-                      "StatusReason"
+                      "StatusLocationOccurrenceDate",
+                      "StatusLocationOccurrenceTime"
                     ]
                   },
                   "TransportEvent": {
@@ -55,6 +40,7 @@
                     "additionalProperties":false,
                     "items": {
                       "type": "object",
+                      "additionalProperties":false,
                       "properties": {
                         "ID": {
                           "type": "string"
@@ -64,37 +50,26 @@
                         },
                         "CurrentStatus": {
                           "type": "object",
+                          "additionalProperties":false,
                           "properties": {
-                            "Description": {
-                              "type": "string"
-                            },
                             "ReferenceDate": {
                               "type": "string"
                             },
                             "ReferenceTime": {
                               "type": "string"
                             },
-                            "StatusReason": {
-                              "type": "string"
-                            },
-                            "StatusReasonCode": {
+                            "Description": {
                               "type": "string"
                             },
                             "MilestoneGrouping": {
                               "type": "string"
-                            },
-                            "StatusException": {
-                              "type": "string"
                             }
                           },
                           "required": [
-                            "Description",
                             "ReferenceDate",
                             "ReferenceTime",
-                            "StatusReason",
-                            "StatusReasonCode",
-                            "MilestoneGrouping",
-                            "StatusException"
+                            "Description",
+                            "MilestoneGrouping"
                           ]
                         },
                         "TransportEventTypeCode": {
@@ -110,15 +85,33 @@
                         "TransportEventTypeDescription"
                       ]
                     }
+                  },
+                  "PegaStopTransportEvent": {
+                    "type": "object",
+                    "additionalProperties":false,
+                    "properties": {
+                      "ID": {},
+                      "Descriptionsss": {
+                        "type": "string",
+                        "additionalProperties":false
+                      }
+                    },
+                    "required": [
+                      "ID",
+                      "Descriptionsss"
+                    ]
                   }
                 },
                 "required": [
                   "ID",
-                  "TransportEvent"
+                  "StatusLocation",
+                  "TransportEvent",
+                  "PegaStopTransportEvent"
                 ]
               },
               "ID": {
-                "type": "string"
+                "type": "string",
+                "additionalProperties":false
               }
             },
             "required": [
@@ -131,18 +124,6 @@
           "Shipment"
         ]
       }
-    },
-    "datetime": {
-      "type": "string"
-    },
-    "feed-source": {
-      "type": "string"
     }
-  },
-  "required": [
-    "_id",
-    "shipments",
-    "datetime",
-    "feed-source"
-  ]
+  }
 }
