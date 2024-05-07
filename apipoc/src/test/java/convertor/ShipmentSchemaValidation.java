@@ -2,12 +2,14 @@ package convertor;
 
 import apipoc.apipoc.BaseTest;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.google.gson.Gson;
 import com.test.helpers.services.UBLServiceHelper;
 import com.test.utils.IOutils;
 import com.test.utils.JsonParser;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.hamcrest.MatcherAssert;
 import org.junit.Assert;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,6 +18,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.stream.Stream;
+import java.io.File;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -25,6 +28,7 @@ public class ShipmentSchemaValidation {
     private UBLServiceHelper ublServiceHelper = new UBLServiceHelper();
     private JsonParser jsonParser = new JsonParser();
     private static String directory = "batch/json/";
+    private String shipmentJson;
 
     @ParameterizedTest
     @MethodSource
@@ -48,7 +52,8 @@ public class ShipmentSchemaValidation {
 
         // iterate over shipments
         for (LinkedHashMap<String, LinkedHashMap> shipmentEntry : shipments) {
-            LinkedHashMap<String, Object> shipmentMap = shipmentEntry.get("Shipment");
+            LinkedHashMap shipmentMap = shipmentEntry.get("Shipment");
+
             if (shipmentMap != null) {
                 Object id = shipmentMap.get("ID");
                 if (id != null) {
@@ -64,25 +69,24 @@ public class ShipmentSchemaValidation {
                     }
                 }
             }
-        }
-        if (foundShipmentID) {
-            if (jsonResponse.get("feed-source").equals("ODS")) {
-                if (foundConsignorParty) {
-                    response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json-non-UBL-raw-shipment-ODS-ConsignorParty-schema.json"));
-                } else {
-                    response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json-non-UBL-raw-shipment-ODS-Event-Delivery-schema.json"));
+            if (foundShipmentID) {
+                if (jsonResponse.get("feed-source").equals("ODS")) {
+                    if (foundConsignorParty) {
+                        response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json-non-UBL-raw-shipment-ODS-ConsignorParty-schema.json"));
+                    } else {
+                        response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json-non-UBL-raw-shipment-ODS-Event-Delivery-schema.json"));
+                    }
+                } else if (jsonResponse.get("feed-source").equals("ODS-OFD")) {
+                    response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json-non-UBL-raw-shipment-ODS-OFD-schema.json"));
+                } else if (jsonResponse.get("feed-source").equals("Default")) {
+                    String shipmentJson = new Gson().toJson(shipmentMap, LinkedHashMap.class);
+                     MatcherAssert.assertThat(shipmentJson, JsonSchemaValidator.matchesJsonSchema(new File(System.getProperty("user.dir") + "/src/test/resources/json-non-UBL-raw-shipment-default-schema.json")));
                 }
-            } else if (jsonResponse.get("feed-source").equals("ODS-OFD")) {
-                response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json-non-UBL-raw-shipment-ODS-OFD-schema.json"));
-            } else if (jsonResponse.get("feed-source").equals("Default")) {
-                response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json-non-UBL-raw-shipment-default-schema.json"));
+            } else {
+                System.out.println("IT IS A PICKUP");
             }
         }
-        else {
-                System.out.println("IT IS A PICKUP");
-        }
-        }
-
+    }
     private static Stream<Object> testUBLtoNonUBL() {
         return IOutils.getFilesNameFromDirectory(directory);
     }
