@@ -80,7 +80,7 @@ public class ShipmentSchemaValidation {
                     response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("json-non-UBL-raw-shipment-ODS-OFD-schema.json"));
                 } else if (jsonResponse.get("feed-source").equals("Default")) {
                     String shipmentJson = new Gson().toJson(shipmentMap, LinkedHashMap.class);
-                     MatcherAssert.assertThat(shipmentJson, JsonSchemaValidator.matchesJsonSchema(new File(System.getProperty("user.dir") + "/src/test/resources/json-non-UBL-raw-shipment-default-schema.json")));
+                    MatcherAssert.assertThat(shipmentJson, JsonSchemaValidator.matchesJsonSchema(new File(System.getProperty("user.dir") + "/src/test/resources/json-non-UBL-raw-shipment-default-schema.json")));
                 }
             } else {
                 System.out.println("IT IS A PICKUP");
