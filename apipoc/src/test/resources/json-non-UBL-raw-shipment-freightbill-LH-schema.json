@@ -1,19 +1,10 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Generated schema for Root",
-  "type": "object",
-  "properties": {
-    "shipments": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
           "Shipment": {
             "type": "object",
-            "additionalProperties":false,
             "properties": {
               "Consignment": {
                 "type": "object",
+                "additionalProperties":false,
                 "properties": {
                   "ID": {
                     "type": "string"
@@ -24,6 +15,7 @@
                     "properties": {
                       "TransportEquipment": {
                         "type": "object",
+                        "additionalProperties":false,
                         "properties": {
                           "ID": {
                             "type": "string"
@@ -52,12 +44,15 @@
                     "properties": {
                       "LocationCoordinate": {
                         "type": "object",
+                        "additionalProperties":false,
                         "properties": {
                           "GeoLocation": {
                             "type": "object",
+                            "additionalProperties":false,
                             "properties": {
                               "Coordinates": {
                                 "type": "array",
+                                "additionalProperties":false,
                                 "items": {}
                               },
                               "type": {
@@ -88,6 +83,7 @@
                     "additionalProperties":false,
                     "items": {
                       "type": "object",
+                      "additionalProperties":false,
                       "properties": {
                         "ID": {
                           "type": "string"
@@ -97,6 +93,7 @@
                         },
                         "Location": {
                           "type": "object",
+                          "additionalProperties":false,
                           "properties": {
                             "ID": {
                               "type": "string"
@@ -109,14 +106,17 @@
                             },
                             "Address": {
                               "type": "array",
+                              "additionalProperties":false,
                               "items": {
                                 "type": "object",
+                                "additionalProperties":false,
                                 "properties": {
                                   "AddressLine": {
                                     "type": "object",
                                     "properties": {
                                       "Line": {
                                         "type": "array",
+                                        "additionalProperties":false,
                                         "items": {
                                           "type": "string"
                                         }
@@ -154,8 +154,10 @@
                         },
                         "Contact": {
                           "type": "array",
+                          "additionalProperties":false,
                           "items": {
                             "type": "object",
+                            "additionalProperties":false,
                             "properties": {
                               "TeleFax": {
                                 "type": "string"
@@ -172,6 +174,7 @@
                         },
                         "CurrentStatus": {
                           "type": "object",
+                          "additionalProperties":false,
                           "properties": {
                             "ReferenceDate": {
                               "type": "string"
@@ -226,17 +229,4 @@
               "ID"
             ]
           }
-        },
-        "required": [
-          "Shipment"
-        ]
-      }
-    },
-    "datetime": {
-      "type": "string"
-    },
-    "feed-source": {
-      "type": "string"
-    }
-  }
 }

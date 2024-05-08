@@ -1,32 +1,11 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "",
-  "type": "object",
-  "properties": {
-    "_id": {
-      "type": "object",
-      "properties": {
-        "$oid": {
-          "type": "string",
-          "minLength": 1
-        }
-      },
-      "required": [
-        "$oid"
-      ]
-    },
-    "shipments": {
-      "type": "array",
-      "additionalProperties":false,
-      "uniqueItems": true,
-      "minItems": 1,
-      "items": {
-        "properties": {
           "Shipment": {
             "type": "object",
+            "additionalProperties":false,
             "properties": {
               "Consignment": {
                 "type": "object",
+                "additionalProperties":false,
                 "properties": {
                   "ID": {
                     "type": "string",
@@ -38,9 +17,11 @@
                     "properties": {
                       "Party": {
                         "type": "object",
+                        "additionalProperties":false,
                         "properties": {
                           "PartyIdentification": {
                             "type": "object",
+                            "additionalProperties":false,
                             "properties": {
                               "ID": {
                                 "type": "string",
@@ -53,6 +34,7 @@
                           },
                           "PartyName": {
                             "type": "object",
+                            "additionalProperties":false,
                             "properties": {
                               "Name": {
                                 "type": "string",
@@ -65,12 +47,15 @@
                           },
                           "PostalAddress": {
                             "type": "object",
+                            "additionalProperties":false,
                             "properties": {
                               "AddressLine": {
                                 "type": "object",
+                                "additionalProperties":false,
                                 "properties": {
                                   "Line": {
                                     "type": "array",
+                                    "additionalProperties":false,
                                     "items": {
                                       "properties": {}
                                     }
@@ -94,6 +79,7 @@
                               },
                               "Country": {
                                 "type": "object",
+                                "additionalProperties":false,
                                 "properties": {
                                   "IdentificationCode": {
                                     "type": "string",
@@ -119,6 +105,7 @@
                   },
                   "FirstArrivalPortLocation": {
                     "type": "object",
+                    "additionalProperties":false,
                     "properties": {
                       "ID": {
                         "type": "string",
@@ -134,6 +121,7 @@
                       },
                       "Contact": {
                         "type": "array",
+                        "additionalProperties":false,
                         "uniqueItems": true,
                         "minItems": 1,
                         "items": {
@@ -158,12 +146,15 @@
                       },
                       "LocationCoordinate": {
                         "type": "object",
+                        "additionalProperties":false,
                         "properties": {
                           "GeoLocation": {
                             "type": "object",
+                            "additionalProperties":false,
                             "properties": {
                               "Coordinates": {
                                 "type": "array",
+                                "additionalProperties":false,
                                 "items": {
                                   "properties": {}
                                 }
@@ -185,15 +176,18 @@
                       },
                       "Address": {
                         "type": "array",
+                        "additionalProperties":false,
                         "uniqueItems": true,
                         "minItems": 1,
                         "items": {
                           "properties": {
                             "AddressLine": {
                               "type": "object",
+                              "additionalProperties":false,
                               "properties": {
                                 "Line": {
                                   "type": "array",
+                                  "additionalProperties":false,
                                   "items": {
                                     "properties": {}
                                   }
@@ -217,6 +211,7 @@
                             },
                             "Country": {
                               "type": "object",
+                              "additionalProperties":false,
                               "properties": {
                                 "IdentificationCode": {
                                   "type": "string",
@@ -258,6 +253,7 @@
                       },
                       "Contact": {
                         "type": "array",
+                        "additionalProperties":false,
                         "uniqueItems": true,
                         "minItems": 1,
                         "items": {
@@ -282,12 +278,15 @@
                       },
                       "LocationCoordinate": {
                         "type": "object",
+                        "additionalProperties":false,
                         "properties": {
                           "GeoLocation": {
                             "type": "object",
+                            "additionalProperties":false,
                             "properties": {
                               "Coordinates": {
                                 "type": "array",
+                                "additionalProperties":false,
                                 "items": {
                                   "properties": {}
                                 }
@@ -309,12 +308,14 @@
                       },
                       "Address": {
                         "type": "array",
+                        "additionalProperties":false,
                         "uniqueItems": true,
                         "minItems": 1,
                         "items": {
                           "properties": {
                             "AddressLine": {
                               "type": "object",
+                              "additionalProperties":false,
                               "properties": {
                                 "Line": {
                                   "type": "array",
@@ -341,6 +342,7 @@
                             },
                             "Country": {
                               "type": "object",
+                              "additionalProperties":false,
                               "properties": {
                                 "IdentificationCode": {
                                   "type": "string",
@@ -370,9 +372,11 @@
                     "properties": {
                       "Party": {
                         "type": "object",
+                        "additionalProperties":false,
                         "properties": {
                           "PartyIdentification": {
                             "type": "object",
+                            "additionalProperties":false,
                             "properties": {
                               "ID": {
                                 "type": "string",
@@ -385,6 +389,7 @@
                           },
                           "PartyName": {
                             "type": "object",
+                            "additionalProperties":false,
                             "properties": {
                               "Name": {
                                 "type": "string",
@@ -397,12 +402,15 @@
                           },
                           "PostalAddress": {
                             "type": "object",
+                            "additionalProperties":false,
                             "properties": {
                               "AddressLine": {
                                 "type": "object",
+                                "additionalProperties":false,
                                 "properties": {
                                   "Line": {
                                     "type": "array",
+                                    "additionalProperties":false,
                                     "items": {
                                       "properties": {}
                                     }
@@ -426,6 +434,7 @@
                               },
                               "Country": {
                                 "type": "object",
+                                "additionalProperties":false,
                                 "properties": {
                                   "IdentificationCode": {
                                     "type": "string",
@@ -458,6 +467,7 @@
                     "properties": {
                       "GoodsItem": {
                         "type": "array",
+                        "additionalProperties":false,
                         "minItems": 1,
                         "items": {
                           "properties": {
@@ -474,9 +484,11 @@
                             },
                             "Item": {
                               "type": "object",
+                              "additionalProperties":false,
                               "properties": {
                                 "CommodityClassification": {
                                   "type": "object",
+                                  "additionalProperties":false,
                                   "properties": {
                                     "CommodityCode": {
                                       "type": "string",
@@ -505,6 +517,7 @@
                   },
                   "ActualPickupTransportEvent": {
                     "type": "object",
+                    "additionalProperties":false,
                     "properties": {
                       "OccurrenceDate": {
                         "type":["string","object", "null"],
@@ -517,6 +530,7 @@
                   },
                   "ShippingPriorityGuaranteedDeliveryTransportEvent": {
                     "type": "object",
+                    "additionalProperties":false,
                     "properties": {
                       "OccurrenceDate": {
                         "type": ["string","object", "null"],
@@ -529,6 +543,7 @@
                   },
                   "OperationStandardDaysEstimatedDeliveryTransportEvent": {
                     "type": "object",
+                    "additionalProperties":false,
                     "properties": {
                       "OccurrenceDate": {
                         "type": ["string","object", "null"],
@@ -536,6 +551,7 @@
                       },
                       "Period": {
                         "type": "object",
+                        "additionalProperties":false,
                         "properties": {
                           "DurationMeasure": {
                             "type": "string",
@@ -553,6 +569,7 @@
                   },
                   "ActualDeliveryTransportEvent": {
                     "type": "object",
+                    "additionalProperties":false,
                     "properties": {
                       "OccurrenceDate": {
                         "type": ["string","object", "null"],
@@ -570,6 +587,7 @@
                   },
                   "TransportEvent": {
                     "type": "array",
+                    "additionalProperties":false,
                     "uniqueItems": true,
                     "minItems": 0,
                     "items": {
@@ -589,6 +607,7 @@
                         },
                         "CurrentStatus": {
                           "type": "object",
+                          "additionalProperties":false,
                           "properties": {
                             "Description": {
                               "type": "string",
@@ -626,6 +645,7 @@
                   },
                   "ShippingPriorityLevelCode": {
                     "type": "array",
+                    "additionalProperties":false,
                     "uniqueItems": true,
                     "minItems": 0,
                     "items": {
@@ -639,6 +659,7 @@
                   },
                   "PaymentTerms": {
                     "type": "object",
+                    "additionalProperties":false,
                     "properties": {
                       "Note": {
                         "type": "string",
@@ -651,6 +672,7 @@
                   },
                   "LegalMonetaryTotal": {
                     "type": "object",
+                    "additionalProperties":false,
                     "properties": {
                       "ChargeTotalAmount": {
                         "type": "number"
@@ -666,9 +688,11 @@
                   },
                   "ServiceType": {
                     "type": "object",
+                    "additionalProperties":false,
                     "properties": {
                       "FinalMile": {
                         "type": "object",
+                        "additionalProperties":false,
                         "properties": {
                           "ResidentialDeliveryIndicator": {
                             "type": "string",
@@ -681,6 +705,7 @@
                       },
                       "VolumeTruckload": {
                         "type": "object",
+                        "additionalProperties":false,
                         "properties": {
                           "TruckloadDeliveryIndicator": {
                             "type": "string",
@@ -717,6 +742,7 @@
               },
               "DocumentReference": {
                 "type": "array",
+                "additionalProperties":false,
                 "minItems": 1,
                 "items": {
                   "required": [
@@ -911,21 +937,3 @@
             ]
           }
         }
-      }
-    },
-    "datetime": {
-      "type": "string",
-      "minLength": 1
-    },
-    "feed-source": {
-      "type": "string",
-      "minLength": 1
-    }
-  },
-  "required": [
-    "_id",
-    "shipments",
-    "datetime",
-    "feed-source"
-  ]
-}

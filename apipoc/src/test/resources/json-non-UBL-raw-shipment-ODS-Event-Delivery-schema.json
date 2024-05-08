@@ -1,25 +1,4 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Generated schema for Root",
-  "type": "object",
-  "properties": {
-    "_id": {
-      "type": "object",
-      "properties": {
-        "$oid": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "$oid"
-      ]
-    },
-    "shipments": {
-      "type": "array",
-      "additionalProperties":false,
-      "items": {
-        "type": "object",
-        "properties": {
           "Shipment": {
             "type": "object",
             "additionalProperties":false,
@@ -33,6 +12,7 @@
                   },
                   "ActualDeliveryTransportEvent": {
                     "type": "object",
+                    "additionalProperties":false,
                     "properties": {
                       "OccurrenceDate": {
                         "type": "string"
@@ -55,6 +35,7 @@
                     "additionalProperties":false,
                     "items": {
                       "type": "object",
+                      "additionalProperties":false,
                       "properties": {
                         "ID": {
                           "type": "string"
@@ -64,6 +45,7 @@
                         },
                         "CurrentStatus": {
                           "type": "object",
+                          "additionalProperties":false,
                           "properties": {
                             "Description": {
                               "type": "string"
@@ -125,24 +107,5 @@
               "Consignment",
               "ID"
             ]
-          }
-        },
-        "required": [
-          "Shipment"
-        ]
+        }
       }
-    },
-    "datetime": {
-      "type": "string"
-    },
-    "feed-source": {
-      "type": "string"
-    }
-  },
-  "required": [
-    "_id",
-    "shipments",
-    "datetime",
-    "feed-source"
-  ]
-}

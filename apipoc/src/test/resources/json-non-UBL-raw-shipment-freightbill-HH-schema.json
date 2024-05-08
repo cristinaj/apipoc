@@ -1,129 +1,113 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Generated schema for Root",
-  "type": "object",
-  "properties": {
-    "shipments": {
-      "type": "array",
-      "additionalProperties":false,
-      "items": {
+  "Shipment": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "Consignment": {
         "type": "object",
+        "additionalProperties": false,
         "properties": {
-          "Shipment": {
+          "ID": {
+            "type": "string"
+          },
+          "StatusLocation": {
             "type": "object",
-            "additionalProperties":false,
+            "additionalProperties": false,
             "properties": {
-              "Consignment": {
-                "type": "object",
-                "additionalProperties":false,
-                "properties": {
-                  "ID": {
-                    "type": "string"
-                  },
-                  "StatusLocation": {
-                    "type": "object",
-                    "properties": {
-                      "StatusLocationOccurrenceDate": {
-                        "type": "string"
-                      },
-                      "StatusLocationOccurrenceTime": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "StatusLocationOccurrenceDate",
-                      "StatusLocationOccurrenceTime"
-                    ]
-                  },
-                  "TransportEvent": {
-                    "type": "array",
-                    "additionalProperties":false,
-                    "items": {
-                      "type": "object",
-                      "additionalProperties":false,
-                      "properties": {
-                        "ID": {
-                          "type": "string"
-                        },
-                        "Description": {
-                          "type": "string"
-                        },
-                        "CurrentStatus": {
-                          "type": "object",
-                          "additionalProperties":false,
-                          "properties": {
-                            "ReferenceDate": {
-                              "type": "string"
-                            },
-                            "ReferenceTime": {
-                              "type": "string"
-                            },
-                            "Description": {
-                              "type": "string"
-                            },
-                            "MilestoneGrouping": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "ReferenceDate",
-                            "ReferenceTime",
-                            "Description",
-                            "MilestoneGrouping"
-                          ]
-                        },
-                        "TransportEventTypeCode": {
-                          "type": "string"
-                        },
-                        "TransportEventTypeDescription": {}
-                      },
-                      "required": [
-                        "ID",
-                        "Description",
-                        "CurrentStatus",
-                        "TransportEventTypeCode",
-                        "TransportEventTypeDescription"
-                      ]
-                    }
-                  },
-                  "PegaStopTransportEvent": {
-                    "type": "object",
-                    "additionalProperties":false,
-                    "properties": {
-                      "ID": {},
-                      "Descriptionsss": {
-                        "type": "string",
-                        "additionalProperties":false
-                      }
-                    },
-                    "required": [
-                      "ID",
-                      "Descriptionsss"
-                    ]
-                  }
-                },
-                "required": [
-                  "ID",
-                  "StatusLocation",
-                  "TransportEvent",
-                  "PegaStopTransportEvent"
-                ]
+              "StatusLocationOccurrenceDate": {
+                "type": "string"
               },
-              "ID": {
-                "type": "string",
-                "additionalProperties":false
+              "StatusLocationOccurrenceTime": {
+                "type": "string"
               }
             },
             "required": [
-              "Consignment",
-              "ID"
+              "StatusLocationOccurrenceDate",
+              "StatusLocationOccurrenceTime"
+            ]
+          },
+          "TransportEvent": {
+            "type": "array",
+            "additionalProperties": false,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ID": {
+                  "type": "string"
+                },
+                "Description": {
+                  "type": "string"
+                },
+                "CurrentStatus": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "ReferenceDate": {
+                      "type": "string"
+                    },
+                    "ReferenceTime": {
+                      "type": "string"
+                    },
+                    "Description": {
+                      "type": "string"
+                    },
+                    "MilestoneGrouping": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "ReferenceDate",
+                    "ReferenceTime",
+                    "Description",
+                    "MilestoneGrouping"
+                  ]
+                },
+                "TransportEventTypeCode": {
+                  "type": "string"
+                },
+                "TransportEventTypeDescription": {}
+              },
+              "required": [
+                "ID",
+                "Description",
+                "CurrentStatus",
+                "TransportEventTypeCode",
+                "TransportEventTypeDescription"
+              ]
+            }
+          },
+          "PegaStopTransportEvent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ID": {},
+              "Description": {
+                "type": "string",
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "ID",
+              "Description"
             ]
           }
         },
         "required": [
-          "Shipment"
+          "ID",
+          "StatusLocation",
+          "TransportEvent",
+          "PegaStopTransportEvent"
         ]
+      },
+      "ID": {
+        "type": "string",
+        "additionalProperties": false
       }
-    }
+    },
+    "required": [
+      "Consignment",
+      "ID"
+    ]
   }
 }

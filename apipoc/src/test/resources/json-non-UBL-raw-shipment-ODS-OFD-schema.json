@@ -1,32 +1,11 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "",
-  "type": "object",
-  "properties": {
-    "_id": {
-      "type": "object",
-      "properties": {
-        "$oid": {
-          "type": "string",
-          "minLength": 1
-        }
-      },
-      "required": [
-        "$oid"
-      ]
-    },
-    "shipments": {
-      "type": "array",
-      "additionalProperties":false,
-      "uniqueItems": true,
-      "minItems": 1,
-      "items": {
-        "properties": {
           "Shipment": {
             "type": "object",
+            "additionalProperties":false,
             "properties": {
               "Consignment": {
                 "type": "object",
+                "additionalProperties":false,
                 "properties": {
                   "ID": {
                     "type": "string",
@@ -34,6 +13,7 @@
                   },
                   "TransportEvent": {
                     "type": "array",
+                    "additionalProperties":false,
                     "uniqueItems": true,
                     "minItems": 1,
                     "items": {
@@ -53,6 +33,7 @@
                         },
                         "CurrentStatus": {
                           "type": "object",
+                          "additionalProperties":false,
                           "properties": {
                             "Description": {
                               "type": "string",
@@ -101,22 +82,4 @@
               "ID"
             ]
           }
-        }
-      }
-    },
-    "datetime": {
-      "type": "string",
-      "minLength": 1
-    },
-    "feed-source": {
-      "type": "string",
-      "minLength": 1
-    }
-  },
-  "required": [
-    "_id",
-    "shipments",
-    "datetime",
-    "feed-source"
-  ]
 }
