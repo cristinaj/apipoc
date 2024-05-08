@@ -23,7 +23,8 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.hamcrest.MatcherAssert;
 
-import com.google.gson.Gson; 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder; 
 
 @ExtendWith(BaseTest.class)
 public class SchemaValidation {
@@ -48,7 +49,11 @@ public class SchemaValidation {
 		
 		shipments.forEach(shipmentEntry -> {
 			LinkedHashMap entity = shipmentEntry.get("Shipment");
-			String shipmentJson = new Gson().toJson(entity,LinkedHashMap.class);
+			
+			GsonBuilder builder = new GsonBuilder(); 
+			builder.serializeNulls(); 
+			Gson gson = builder.create(); 
+			String shipmentJson = gson.toJson(entity,LinkedHashMap.class);
 			
 			String schema = JsonSchema.getJsonSchema(entity, feedSource);
 			

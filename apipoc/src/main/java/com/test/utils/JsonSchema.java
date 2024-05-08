@@ -47,7 +47,6 @@ public class JsonSchema {
 				}
 			} else {
 				if(pegaTransportEvent !=null) {
-					System.out.println("Pega is not null");
 					return freightbillHH;
 				}
 				return freightbillLH;

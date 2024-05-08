@@ -103,6 +103,21 @@
       "ID": {
         "type": "string",
         "additionalProperties": false
+      },
+      "StopRelatedShipmentID": {
+      	"type": "array",
+      	"additionalProperties":false,
+      	"items": [
+        	{
+          		"type": "string"
+        	},
+        	{
+          		"type": "string"
+        	},
+        	{
+          		"type": "string"
+        	}
+      	]
       }
     },
     "required": [

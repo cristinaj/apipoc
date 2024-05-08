@@ -251,12 +251,14 @@
                                  ]
                               },
                               "Information":{
-                                 "type":"string"
+                                 "type":[
+                                 	"string", 
+                                 	"null"
+                                 ]
                               }
                            },
                            "required":[
                               "ID",
-                              "OperatingParty",
                               "SizeTypeCode"
                            ]
                         }
@@ -404,7 +406,13 @@
                                     },
                                     "MilestoneGrouping":{
                                        "type":"string"
-                                    }
+                                    },
+                                    "StatusReasonCode": {
+      									"type": "string"
+    								},
+    								"StatusReason": {
+     									"type": "string"
+    								}
                                  },
                                  "required":[
                                     "ReferenceDate",
@@ -431,7 +439,22 @@
                ]
             }
          ]
-      }
+      },
+      "StopRelatedShipmentID": {
+      	"type": "array",
+      	"additionalProperties":false,
+      	"items": [
+        	{
+          		"type": "string"
+        	},
+        	{
+          		"type": "string"
+        	},
+        	{
+          		"type": "string"
+        	}
+      	]
+    }
    },
    "required":[
       "Consignment"

@@ -594,8 +594,7 @@
                "additionalProperties":false,
                "required":[
                   "ID",
-                  "TransportEventTypeCode",
-                  "TransportEventTypeDescription"
+                  "TransportEventTypeCode"
                ],
                "properties":{
                   "ID":{
@@ -869,8 +868,7 @@
                      "Description",
                      "ID",
                      "Location",
-                     "TransportEventTypeCode",
-                     "TransportEventTypeDescription"
+                     "TransportEventTypeCode"
                   ],
                   "properties":{
                      "CurrentStatus":{
@@ -1208,7 +1206,21 @@
                   }
                }
             }
-         }
+         },
+         "required":[
+             "CarrierAssignedID",
+             "ConsignorParty",
+             "FirstArrivalPortLocation",
+             "GrossWeightMeasure",
+             "HazardousRiskIndicator",
+             "iSeriesStopTransportEvent",
+             "PickupRequestActionCode",
+             "RequestedPickupTransportEvent",
+             "TotalGoodsItemQuantity",
+             "TotalTransportHandlingUnitQuantity",
+             "TransportExecutionStatusCode",
+             "WeightStatement"
+         ]
       },
       "DocumentReference":{
          "title":"Documentreference",
