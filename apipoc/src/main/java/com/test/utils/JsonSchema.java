@@ -11,11 +11,13 @@ public class JsonSchema {
 	private final static String reconciledHH = "json-non-UBL-raw-pickup-HH-reconciled.json";
 	private final static String operationalHH = "json-non-UBL-raw-pickup-HH-operational.json";
 	private final static String defaultHH = "json-non-UBL-raw-pickup-HH-schema.json";
-	private final static String defaultShipment = "json-non-UBL-raw-shipment-default-schema.json";
+	private final static String freightbillLH = "json-non-UBL-raw-shipment-freightbill-LH-schema.json";
+	private final static String freightbillHH = "json-non-UBL-raw-shipment-freightbill-HH-schema.json";
 
 	public static String getJsonSchema (LinkedHashMap entity, String feedSource) {
 		
 		LinkedHashMap consignment = (LinkedHashMap) entity.get("Consignment");
+        LinkedHashMap<String, Object> pegaTransportEvent = (LinkedHashMap<String, Object>) consignment.get("PegaStopTransportEvent");
 		
 		if(feedSource.equals("pickup-iseries")) {
 			return iseries;
@@ -23,8 +25,8 @@ public class JsonSchema {
 			return odsOfd;
 		} else if(feedSource.equals("ODS")) {
             if (consignment != null) {
-                LinkedHashMap<String, Object> consignorPartyMap = (LinkedHashMap<String, Object>) consignment.get("ConsignorParty");
-                if (consignorPartyMap != null) {
+                LinkedHashMap<String, Object> consignorParty = (LinkedHashMap<String, Object>) consignment.get("ConsignorParty");
+                if (consignorParty != null) {
                 	return odsConsignorParty;
                 } else return odsEventDelivery;
             }
@@ -32,7 +34,7 @@ public class JsonSchema {
 			Object id = entity.get("ID");
 			if(id==null) {
 				Object reconciledShipmentID = entity.get("ReconciledShipmentID");
-				Object operationHandHeldEstimatedPickupTransportEvent = consignment.get("OperationHandHeldEstimatedPickupTransportEvent"); 
+				Object operationHandHeldEstimatedPickupTransportEvent = consignment.get("OperationHandHeldEstimatedPickupTransportEvent");
 				
 				if(reconciledShipmentID == null) {
 					if(operationHandHeldEstimatedPickupTransportEvent != null) {
@@ -44,7 +46,11 @@ public class JsonSchema {
 					return reconciledHH;
 				}
 			} else {
-				return defaultShipment;
+				if(pegaTransportEvent !=null) {
+					System.out.println("Pega is not null");
+					return freightbillHH;
+				}
+				return freightbillLH;
 			}
 		}
 

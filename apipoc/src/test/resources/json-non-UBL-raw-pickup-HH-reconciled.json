@@ -1,31 +1,30 @@
 {
-            "Shipment": {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "Consignment": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "CarrierAssignedID": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "CarrierAssignedID"
-                  ]
-                },
-                "ReconciledShipmentID": {
-                  "type": "string"
-                },
-                "ReconciledShipmentOperation": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "Consignment",
-                "ReconciledShipmentID",
-                "ReconciledShipmentOperation"
-              ]
+   "$schema":"http://json-schema.org/draft-04/schema#",
+   "type":"object",
+   "additionalProperties":false,
+   "properties":{
+      "Consignment":{
+         "type":"object",
+         "additionalProperties":false,
+         "properties":{
+            "CarrierAssignedID":{
+               "type":"string"
             }
+         },
+         "required":[
+            "CarrierAssignedID"
+         ]
+      },
+      "ReconciledShipmentID":{
+         "type":"string"
+      },
+      "ReconciledShipmentOperation":{
+         "type":"string"
+      }
+   },
+   "required":[
+      "Consignment",
+      "ReconciledShipmentID",
+      "ReconciledShipmentOperation"
+   ]
 }
