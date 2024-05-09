@@ -5,7 +5,7 @@ import java.io.File;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class JsonParser {
+public class JsonFileParser {
 	
 	private String jsonFilePath="src/main/java/com/test/UBL/";
 	private ObjectMapper objectMapper;

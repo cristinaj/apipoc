@@ -2,7 +2,6 @@ package convertor;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.stream.Stream;
 import java.io.File;
@@ -14,24 +13,22 @@ import org.junit.jupiter.params.provider.MethodSource;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.test.helpers.services.UBLServiceHelper;
 import com.test.utils.IOutils;
-import com.test.utils.JsonParser;
-import com.test.utils.JsonSchema;
+import com.test.utils.JsonFileParser;
+import com.test.utils.nonUBL.JsonPathResponseHelper;
+import com.test.utils.nonUBL.JsonSchemaHelper;
 
 import apipoc.apipoc.BaseTest;
 import io.restassured.module.jsv.JsonSchemaValidator;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.hamcrest.MatcherAssert;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder; 
 
 @ExtendWith(BaseTest.class)
 public class SchemaValidation {
 
 	private UBLServiceHelper ublServiceHelper = new UBLServiceHelper();
-	private JsonParser jsonParser = new JsonParser();
-	private static String directory = "batch/json/";
+	private JsonFileParser jsonParser = new JsonFileParser();
+	public JsonSchemaHelper jsonSchemaHelper = new JsonSchemaHelper();
+	private static String directory = "batch1/json/";
 	
 	@ParameterizedTest
 	@MethodSource
@@ -43,19 +40,14 @@ public class SchemaValidation {
 		
 		assertEquals(200, response.statusCode());
 		
-		JsonPath jsonResponse = response.body().jsonPath();
-		String feedSource = jsonResponse.get("feed-source");
-		ArrayList<LinkedHashMap<String, LinkedHashMap>> shipments = jsonResponse.get("shipments");
+		JsonPathResponseHelper jsonResponse = new JsonPathResponseHelper(response);
 		
-		shipments.forEach(shipmentEntry -> {
-			LinkedHashMap entity = shipmentEntry.get("Shipment");
+		jsonResponse.getShipments().forEach(shipment -> {
+			LinkedHashMap entity = shipment.get("Shipment");
 			
-			GsonBuilder builder = new GsonBuilder(); 
-			builder.serializeNulls(); 
-			Gson gson = builder.create(); 
-			String shipmentJson = gson.toJson(entity,LinkedHashMap.class);
+			String shipmentJson = jsonSchemaHelper.toString(entity);
 			
-			String schema = JsonSchema.getJsonSchema(entity, feedSource);
+			String schema = JsonSchemaHelper.getJsonSchema(entity, jsonResponse.getFeedSource());
 			
 			MatcherAssert.assertThat(shipmentJson, JsonSchemaValidator.matchesJsonSchema(new File(System.getProperty("user.dir") + "/src/test/resources/" + schema)));
 		});
