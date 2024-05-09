@@ -1,8 +1,8 @@
 {
-          "Shipment": {
-            "type": "object",
-            "additionalProperties":false,
-            "properties": {
+      "$schema":"http://json-schema.org/draft-04/schema#",
+      "type":"object",
+      "additionalProperties":false,
+      "properties": {
               "Consignment": {
                 "type": "object",
                 "additionalProperties":false,
@@ -22,6 +22,15 @@
                       },
                       "StatusReason": {
                         "type": "string"
+                      },
+                      "StatusPackageDescr": {
+                        "type": "string"
+                      },
+                      "StatusPackageType": {
+                        "type": "string"
+                      },
+                      "StatusQuantity": {
+                        "type": "number"
                       }
                     },
                     "required": [
@@ -51,10 +60,10 @@
                               "type": "string"
                             },
                             "ReferenceDate": {
-                              "type": "string"
+                              "type": ["string", "null"]
                             },
                             "ReferenceTime": {
-                              "type": "string"
+                              "type": ["string", "null"]
                             },
                             "StatusReason": {
                               "type": "string"
@@ -67,12 +76,19 @@
                             },
                             "StatusException": {
                               "type": "string"
+                            },
+                            "StatusPackageDescr": {
+                              "type": "string"
+                            },
+                            "StatusPackageType": {
+                              "type": "string"
+                            },
+                            "StatusQuantity": {
+                              "type": "number"
                             }
                           },
                           "required": [
                             "Description",
-                            "ReferenceDate",
-                            "ReferenceTime",
                             "StatusReason",
                             "StatusReasonCode",
                             "MilestoneGrouping",
@@ -108,4 +124,4 @@
               "ID"
             ]
         }
-      }
+

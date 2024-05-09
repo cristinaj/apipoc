@@ -1,7 +1,7 @@
 {
-          "Shipment": {
-            "type": "object",
-            "additionalProperties":false,
+    "$schema":"http://json-schema.org/draft-04/schema#",
+    "type":"object",
+    "additionalProperties":false,
             "properties": {
               "Consignment": {
                 "type": "object",
@@ -66,11 +66,11 @@
                                 ]
                               },
                               "CityName": {
-                                "type": "string",
+                                "type": ["string","null"],
                                 "minLength": 1
                               },
                               "PostalZone": {
-                                "type": "string",
+                                "type": ["string", "null"],
                                 "minLength": 1
                               },
                               "CountrySubentity": {
@@ -138,7 +138,7 @@
                               "minLength": 1
                             },
                             "Telephone": {
-                              "type": "string",
+                              "type": ["string","null"],
                               "minLength": 1
                             }
                           }
@@ -198,11 +198,11 @@
                               ]
                             },
                             "PostalZone": {
-                              "type": "string",
+                              "type": ["string", "null"],
                               "minLength": 1
                             },
                             "CityName": {
-                              "type": "string",
+                              "type": ["string","null"],
                               "minLength": 1
                             },
                             "CountrySubentityCode": {
@@ -266,11 +266,11 @@
                               "minLength": 1
                             },
                             "ElectronicMail": {
-                              "type": "string",
+                              "type": ["string", "null"],
                               "minLength": 1
                             },
                             "Telephone": {
-                              "type": "string",
+                              "type": ["string", "null"],
                               "minLength": 1
                             }
                           }
@@ -318,7 +318,7 @@
                               "additionalProperties":false,
                               "properties": {
                                 "Line": {
-                                  "type": "array",
+                                  "type": ["array","null"],
                                   "items": {
                                     "properties": {}
                                   }
@@ -329,11 +329,11 @@
                               ]
                             },
                             "PostalZone": {
-                              "type": "string",
+                              "type": ["string", "null"],
                               "minLength": 1
                             },
                             "CityName": {
-                              "type": "string",
+                              "type": ["string", "null"],
                               "minLength": 1
                             },
                             "CountrySubentityCode": {
@@ -421,11 +421,11 @@
                                 ]
                               },
                               "CityName": {
-                                "type": "string",
+                                "type":["string","null"],
                                 "minLength": 1
                               },
                               "PostalZone": {
-                                "type": "string",
+                                "type": ["string", "null"],
                                 "minLength": 1
                               },
                               "CountrySubentity": {
@@ -461,6 +461,15 @@
                   "GrossWeightMeasure": {
                     "type": "number"
                   },
+                  "CarrierAssignedID" : {
+                    "type": "string"
+                  },
+                  "GrossCubeMeasure": {
+                    "type": "number"
+                  },
+                  "RatedCubeMeasure": {
+                    "type": "number"
+                  },
                   "TransportHandlingUnit": {
                     "type": "object",
                     "additionalProperties":false,
@@ -484,11 +493,11 @@
                             },
                             "Item": {
                               "type": "object",
-                              "additionalProperties":false,
+                              "additionalProperties": false,
                               "properties": {
                                 "CommodityClassification": {
                                   "type": "object",
-                                  "additionalProperties":false,
+                                  "additionalProperties": false,
                                   "properties": {
                                     "CommodityCode": {
                                       "type": "string",
@@ -498,8 +507,31 @@
                                   "required": [
                                     "CommodityCode"
                                   ]
-                                }
-                              },
+                                },
+                                "HazardousRiskIndicator" : {
+                                  "type": "string"
+                                },
+                                "HazardousItem": {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "HazardousCategoryCode" : {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                              "StandardItemIdentification": {
+                                "type": "object",
+                                "properties": {
+                                  "ID": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "ID"
+                                ]
+                              }
+                            },
                               "required": [
                                 "CommodityClassification"
                               ]
@@ -520,7 +552,7 @@
                     "additionalProperties":false,
                     "properties": {
                       "OccurrenceDate": {
-                        "type":["string","object", "null"],
+                        "type":["string", "null"],
                         "minLength": 1
                       }
                     },
@@ -536,10 +568,7 @@
                         "type": ["string","object", "null"],
                         "properties": {}
                       }
-                    },
-                    "required": [
-                      "OccurrenceDate"
-                    ]
+                    }
                   },
                   "OperationStandardDaysEstimatedDeliveryTransportEvent": {
                     "type": "object",
@@ -562,10 +591,90 @@
                           "DurationMeasure"
                         ]
                       }
-                    },
-                    "required": [
-                      "OccurrenceDate"
-                    ]
+                    }
+                  },
+                  "PerformingCarrierAssignedID": {
+                    "type": "string"
+                  },
+                  "PerformingCarrierParty" : {
+                    "type": "object",
+                    "additionalProperties":false,
+                    "properties" : {
+                      "Party" : {
+                        "type": "object",
+                        "additionalProperties":false,
+                        "properties" : {
+                          "PartyIdentification" : {
+                            "type": "object",
+                            "additionalProperties":false,
+                            "properties" : {
+                              "ID": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "PartyName" : {
+                            "type": "object",
+                            "additionalProperties":false,
+                            "properties" : {
+                              "Name": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "PostalAddress" : {
+                            "type": "object",
+                            "additionalProperties":false,
+                            "properties" : {
+                              "Address": {
+                                "type": "array",
+                                "properties": {
+                                  "CityName" : {
+                                    "type": ["string","null"]
+                                  },
+                                  "PostalZone": {
+                                    "type": ["string", "null"]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "RequestedDeliveryTransportEvent": {
+                    "type": "object",
+                    "additionalProperties":false,
+                    "properties": {
+                      "Period": {
+                        "type": "object",
+                        "additionalProperties":false,
+                        "properties": {
+                          "StartDate": {
+                            "type": ["string", "null"]
+                          },
+                          "EndDate": {
+                            "type": ["string", "null"]
+                          },
+                          "StartTime": {
+                            "type": ["string", "null"]
+                          },
+                          "EndTime": {
+                            "type": ["string", "null"]
+                          }
+                        }
+                      },
+                      "CurrentStatus": {
+                        "type": "object",
+                        "additionalProperties":false,
+                        "properties": {
+                          "Description" : {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
                   },
                   "ActualDeliveryTransportEvent": {
                     "type": "object",
@@ -584,6 +693,48 @@
                       "OccurrenceDate",
                       "OccurrenceTime"
                     ]
+                  },
+                  "ContractedCarrierAssignedID" : {
+                    "type": "string"
+                  },
+                  "CarrierParty" : {
+                    "type": "object",
+                    "additionalProperties":false,
+                    "properties" : {
+                      "Party" : {
+                        "type": "object",
+                        "additionalProperties":false,
+                        "properties": {
+                          "PartyIdentification" : {
+                            "type": "object",
+                            "additionalProperties":false,
+                            "properties" : {
+                              "ID" : {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "PartyName" : {
+                            "type": "object",
+                            "additionalProperties":false,
+                            "properties": {
+                              "Name" : {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "PostalAddress" : {
+                            "type": "object",
+                            "additionalProperties":false,
+                            "properties": {
+                              "Address" : {
+                                "type": "array"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
                   },
                   "TransportEvent": {
                     "type": "array",
@@ -614,11 +765,11 @@
                               "minLength": 1
                             },
                             "ReferenceDate": {
-                              "type": "string",
+                              "type": ["string", "null"],
                               "minLength": 1
                             },
                             "ReferenceTime": {
-                              "type": "string",
+                              "type": ["string", "null"],
                               "minLength": 1
                             },
                             "MilestoneGrouping": {
@@ -628,8 +779,6 @@
                           },
                           "required": [
                             "Description",
-                            "ReferenceDate",
-                            "ReferenceTime",
                             "MilestoneGrouping"
                           ]
                         },
@@ -727,10 +876,8 @@
                   "ID",
                   "ConsignorParty",
                   "FirstArrivalPortLocation",
-                  "ActualPickupTransportEvent",
                   "ShippingPriorityGuaranteedDeliveryTransportEvent",
                   "TransportEvent",
-                  "TotalGoodsItemQuantity",
                   "ShippingPriorityLevelCode",
                   "LegalMonetaryTotal",
                   "ServiceType"
@@ -796,11 +943,11 @@
                         "type": "object",
                         "properties": {
                           "CityName": {
-                            "type": "string",
+                            "type": ["string","null"],
                             "minLength": 1
                           },
                           "PostalZone": {
-                            "type": "string",
+                            "type": ["string", "null"],
                             "minLength": 1
                           },
                           "CountrySubentity": {
@@ -880,11 +1027,11 @@
                         "type": "object",
                         "properties": {
                           "CityName": {
-                            "type": "string",
+                            "type": ["string","null"],
                             "minLength": 1
                           },
                           "PostalZone": {
-                            "type": "string",
+                            "type": ["string", "null"],
                             "minLength": 1
                           },
                           "CountrySubentity": {
@@ -936,4 +1083,4 @@
               "ID"
             ]
           }
-        }
+

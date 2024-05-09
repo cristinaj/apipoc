@@ -31,7 +31,7 @@ public class SchemaValidation {
 
 	private UBLServiceHelper ublServiceHelper = new UBLServiceHelper();
 	private JsonParser jsonParser = new JsonParser();
-	private static String directory = "batch1/json/";
+	private static String directory = "batch/json/";
 	
 	@ParameterizedTest
 	@MethodSource

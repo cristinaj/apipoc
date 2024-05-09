@@ -1,0 +1,224 @@
+{
+  "$schema":"http://json-schema.org/draft-04/schema#",
+  "type":"object",
+  "additionalProperties":false,
+            "properties": {
+              "Consignment": {
+                "type": "object",
+                "additionalProperties":false,
+                "properties": {
+                  "GrossWeightMeasure": {
+                    "type": "number"
+                  },
+                  "ID": {
+                    "type": "string"
+                  },
+                  "CarrierAssignedID": {
+                    "type": "string"
+                  },
+                  "TransportHandlingUnit": {
+                    "type": "object",
+                    "additionalProperties":false,
+                    "properties": {
+                      "TransportEquipment": {
+                        "type": "object",
+                        "additionalProperties":false,
+                        "properties": {
+                          "ID": {
+                            "type": "string"
+                          },
+                          "OperatingParty": {
+                            "type": "object",
+                            "additionalProperties":false,
+                            "properties": {
+                              "Party": {
+                                "type": "object",
+                                "additionalProperties":false,
+                                "properties": {
+                                  "Contact": {
+                                    "type": "array",
+                                    "additionalProperties":false,
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties":false,
+                                      "properties": {
+                                        "Name": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "Name"
+                                      ]
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "Contact"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "Party"
+                            ]
+                          },
+                          "SizeTypeCode": {
+                            "type": "string"
+                          },
+                          "Information": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "ID"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "TransportEquipment"
+                    ]
+                  },
+                  "ActualPickupTransportEvent": {
+                    "type": "object",
+                    "additionalProperties":false,
+                    "properties": {
+                      "OccurrenceDate": {
+                        "type": "string"
+                      },
+                      "OccurrenceTime": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "OccurrenceDate",
+                      "OccurrenceTime"
+                    ]
+                  },
+                  "StatusLocation": {
+                    "type": "object",
+                    "additionalProperties":false,
+                    "properties": {
+                      "Description": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "Description"
+                    ]
+                  },
+                  "TransportExecutionStatusCode": {
+                    "type": "string"
+                  },
+                  "TransportEvent": {
+                    "type": "array",
+                    "additionalProperties":false,
+                    "items": {
+                      "type": "object",
+                      "additionalProperties":false,
+                      "properties": {
+                        "ID": {
+                          "type": "string"
+                        },
+                        "Description": {
+                          "type": "string"
+                        },
+                        "CurrentStatus": {
+                          "type": "object",
+                          "additionalProperties":false,
+                          "properties": {
+                            "ReferenceDate": {
+                              "type": ["string", "null"]
+                            },
+                            "ReferenceTime": {
+                              "type":["string", "null"]
+                            },
+                            "Description": {
+                              "type": "string"
+                            },
+                            "MilestoneGrouping": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "Description",
+                            "MilestoneGrouping"
+                          ]
+                        },
+                        "TransportEventTypeCode": {
+                          "type": "string"
+                        },
+                        "TransportEventTypeDescription": {}
+                      },
+                      "required": [
+                        "ID",
+                        "Description",
+                        "CurrentStatus",
+                        "TransportEventTypeCode",
+                        "TransportEventTypeDescription"
+                      ]
+                    }
+                  },
+                  "TotalGoodsItemQuantity": {
+                    "type": "number"
+                  },
+                  "OperationHandHeldEstimatedPickupTransportEvent": {
+                    "type": "object",
+                    "additionalProperties":false,
+                    "properties": {
+                      "OccurrenceDate": {
+                        "type": ["string", "null"]
+                      },
+                      "OccurrenceTime": {
+                        "type":  ["string", "null"]
+                      }
+                    },
+                    "required": [
+                      "OccurrenceDate",
+                      "OccurrenceTime"
+                    ]
+                  },
+                  "PegaStopTransportEvent": {
+                    "type": "object",
+                    "additionalProperties":false,
+                    "properties": {
+                      "ID": {
+                        "type": "string"
+                      },
+                      "Description": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "ID",
+                      "Description"
+                    ]
+                  }
+                },
+                "required": [
+                  "GrossWeightMeasure",
+                  "ID",
+                  "CarrierAssignedID",
+                  "TransportHandlingUnit",
+                  "ActualPickupTransportEvent",
+                  "TransportExecutionStatusCode",
+                  "TransportEvent",
+                  "TotalGoodsItemQuantity",
+                  "PegaStopTransportEvent"
+                ]
+              },
+              "StopRelatedShipmentID": {
+                "type": "array",
+                "additionalProperties":false,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Consignment",
+              "StopRelatedShipmentID",
+              "ID"
+            ]
+        }

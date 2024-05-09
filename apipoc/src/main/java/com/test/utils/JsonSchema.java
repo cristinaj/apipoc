@@ -13,12 +13,13 @@ public class JsonSchema {
 	private final static String defaultHH = "json-non-UBL-raw-pickup-HH-schema.json";
 	private final static String freightbillLH = "json-non-UBL-raw-shipment-freightbill-LH-schema.json";
 	private final static String freightbillHH = "json-non-UBL-raw-shipment-freightbill-HH-schema.json";
+	private final static String shipmentPickup = "json-non-UBL-raw-shipment-pickup-schema.json";
 
 	public static String getJsonSchema (LinkedHashMap entity, String feedSource) {
 		
 		LinkedHashMap consignment = (LinkedHashMap) entity.get("Consignment");
         LinkedHashMap<String, Object> pegaTransportEvent = (LinkedHashMap<String, Object>) consignment.get("PegaStopTransportEvent");
-		
+
 		if(feedSource.equals("pickup-iseries")) {
 			return iseries;
 		} else if(feedSource.equals("ODS-OFD")) {
@@ -32,7 +33,8 @@ public class JsonSchema {
             }
 		} else if(feedSource.equals("Default")) {
 			Object id = entity.get("ID");
-			if(id==null) {
+			Object StopRelatedShipmentID = entity.get("StopRelatedShipmentID");
+			if(id == null) {
 				Object reconciledShipmentID = entity.get("ReconciledShipmentID");
 				Object operationHandHeldEstimatedPickupTransportEvent = consignment.get("OperationHandHeldEstimatedPickupTransportEvent");
 				
@@ -47,7 +49,11 @@ public class JsonSchema {
 				}
 			} else {
 				if(pegaTransportEvent !=null) {
-					return freightbillHH;
+					if (StopRelatedShipmentID!=null)
+					{
+						return shipmentPickup;
+					}
+					else return freightbillHH;
 				}
 				return freightbillLH;
 			}

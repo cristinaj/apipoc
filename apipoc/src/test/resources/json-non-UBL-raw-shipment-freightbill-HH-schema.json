@@ -1,128 +1,293 @@
 {
-  "Shipment": {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-      "Consignment": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "ID": {
-            "type": "string"
-          },
-          "StatusLocation": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "StatusLocationOccurrenceDate": {
-                "type": "string"
-              },
-              "StatusLocationOccurrenceTime": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "StatusLocationOccurrenceDate",
-              "StatusLocationOccurrenceTime"
-            ]
-          },
-          "TransportEvent": {
-            "type": "array",
-            "additionalProperties": false,
-            "items": {
+  "$schema":"http://json-schema.org/draft-04/schema#",
+  "type":"object",
+  "additionalProperties":false,
+  "properties": {
+    "Consignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ID": {
+          "type": ["string", "null"]
+        },
+        "ConsigneeParty": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "Party": {
               "type": "object",
               "additionalProperties": false,
               "properties": {
-                "ID": {
-                  "type": "string"
-                },
-                "Description": {
-                  "type": "string"
-                },
-                "CurrentStatus": {
+                "PartyIdentification": {
                   "type": "object",
                   "additionalProperties": false,
                   "properties": {
-                    "ReferenceDate": {
-                      "type": "string"
-                    },
-                    "ReferenceTime": {
-                      "type": "string"
-                    },
-                    "Description": {
-                      "type": "string"
-                    },
-                    "MilestoneGrouping": {
+                    "ID": {
                       "type": "string"
                     }
-                  },
-                  "required": [
-                    "ReferenceDate",
-                    "ReferenceTime",
-                    "Description",
-                    "MilestoneGrouping"
-                  ]
+                  }
                 },
-                "TransportEventTypeCode": {
-                  "type": "string"
+                "PartyName": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "Name": {
+                      "type": "string"
+                    }
+                  }
                 },
-                "TransportEventTypeDescription": {}
-              },
-              "required": [
-                "ID",
-                "Description",
-                "CurrentStatus",
-                "TransportEventTypeCode",
-                "TransportEventTypeDescription"
-              ]
+                "PostalAddress": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "AddressLine": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "Line": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "CityName": {
+                      "type": "string"
+                    },
+                    "PostalZone": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
             }
-          },
-          "PegaStopTransportEvent": {
+          }
+        },
+        "RequestedDeliveryTransportEvent" : {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "Period": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "StartDate" : {
+                  "type": ["string", "null"]
+                },
+                "EndDate" : {
+                  "type": ["string", "null"]
+                },
+                "StartTime" : {
+                  "type": ["string", "null"]
+                },
+                "EndTime" : {
+                  "type": ["string", "null"]
+                }
+              }
+            }
+          }
+        },
+        "Status" : {
+          "type": "object",
+          "properties": {
+            "Description": {
+              "type": "string"
+            }
+          }
+        },
+        "ActualDeliveryTransportEvent" : {
+          "type": "object",
+          "additionalProperties": false,
+          "properties" : {
+            "OccurrenceDate" : {
+              "type": ["string", "null"]
+            },
+            "OccurrenceTime" : {
+              "type": ["string", "null"]
+            },
+            "StatusPackageDescr": {
+              "type": "string"
+            },
+            "StatusPackageType": {
+              "type": "string"
+            },
+            "StatusQuantity": {
+              "type": "number"
+            },
+            "StatusReason": {
+              "type": "string"
+            },
+            "StatusReasonCode": {
+              "type": "string"
+            }
+          }
+        },
+        "StatusLocation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "Description" : {
+              "type" : "string"
+            },
+            "LocationCoordinate" : {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "GeoLocation" : {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties" : {
+                    "Coordinates" : {
+                      "type": "array",
+                      "additionalProperties": false
+                    },
+                    "type" : {
+                    "type": "string"
+                  }
+                  }
+                }
+              }
+            },
+            "StatusLocationOccurrenceDate": {
+              "type": "string"
+            },
+            "StatusLocationOccurrenceTime": {
+              "type": "string"
+            }
+          }
+        },
+        "TransportExecutionStatusCode" : {
+          "type": "string"
+        },
+        "TransportEvent": {
+          "type": "array",
+          "additionalProperties": false,
+          "items": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "ID": {},
+              "ID": {
+                "type": "string"
+              },
               "Description": {
-                "type": "string",
-                "additionalProperties": false
-              }
+                "type": "string"
+              },
+              "CurrentStatus": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ReferenceDate": {
+                    "type": "string"
+                  },
+                  "ReferenceTime": {
+                    "type": ["string", "null"]
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "MilestoneGrouping": {
+                    "type": "string"
+                  },
+                  "StatusReason": {
+                    "type": "string"
+                  },
+                  "StatusReasonCode": {
+                    "type": "string"
+                  },
+                  "StatusException": {
+                    "type": "string"
+                  },
+                  "StatusPackageDescr": {
+                    "type": "string"
+                  },
+                  "StatusPackageType": {
+                    "type": "string"
+                  },
+                  "StatusQuantity": {
+                    "type": "number"
+                  },
+                  "StatusReason": {
+                    "type": "string"
+                  },
+                  "StatusReasonCode": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "Description",
+                  "MilestoneGrouping"
+                ]
+              },
+              "TransportEventTypeCode": {
+                "type": "string"
+              },
+              "TransportEventTypeDescription": {}
             },
             "required": [
               "ID",
-              "Description"
+              "Description",
+              "CurrentStatus",
+              "TransportEventTypeCode",
+              "TransportEventTypeDescription"
             ]
           }
         },
-        "required": [
-          "ID",
-          "StatusLocation",
-          "TransportEvent",
-          "PegaStopTransportEvent"
-        ]
+        "OperationHandHeldEstimatedDeliveryTransportEvent" : {
+          "type": "object",
+          "additionalProperties": false,
+          "properties" : {
+            "OccurrenceDate" : {
+              "type": ["string", "null"]
+            },
+            "OccurrenceTime" : {
+              "type": ["string", "null"]
+            }
+          }
+        },
+        "PegaStopTransportEvent": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ID": {
+              "type": ["string", "null"]
+            },
+            "Description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "ID",
+            "Description"
+          ]
+        }
       },
-      "ID": {
-        "type": "string",
-        "additionalProperties": false
-      },
-      "StopRelatedShipmentID": {
-      	"type": "array",
-      	"additionalProperties":false,
-      	"items": [
-        	{
-          		"type": "string"
-        	},
-        	{
-          		"type": "string"
-        	},
-        	{
-          		"type": "string"
-        	}
-      	]
-      }
+      "required": [
+        "ID",
+        "TransportEvent",
+        "PegaStopTransportEvent"
+      ]
     },
+    "ID": {
+      "type": ["string","null"],
+      "additionalProperties": false
+    },
+    "StopRelatedShipmentID": {
+      "type": "array",
+      "additionalProperties":false,
+      "items": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    }
+  },
     "required": [
       "Consignment",
       "ID"
     ]
   }
-}
+

@@ -1,8 +1,8 @@
 {
-          "Shipment": {
-            "type": "object",
-            "additionalProperties":false,
-            "properties": {
+    "$schema":"http://json-schema.org/draft-04/schema#",
+    "type":"object",
+    "additionalProperties":false,
+    "properties": {
               "Consignment": {
                 "type": "object",
                 "additionalProperties":false,
@@ -40,11 +40,11 @@
                               "minLength": 1
                             },
                             "ReferenceDate": {
-                              "type": "string",
+                              "type": ["string", "null"],
                               "minLength": 1
                             },
                             "ReferenceTime": {
-                              "type": "string",
+                              "type": ["string", "null"],
                               "minLength": 1
                             },
                             "MilestoneGrouping": {
@@ -54,8 +54,6 @@
                           },
                           "required": [
                             "Description",
-                            "ReferenceDate",
-                            "ReferenceTime",
                             "MilestoneGrouping"
                           ]
                         },
@@ -82,4 +80,3 @@
               "ID"
             ]
           }
-}

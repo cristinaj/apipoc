@@ -1,6 +1,7 @@
 {
-          "Shipment": {
-            "type": "object",
+  "$schema":"http://json-schema.org/draft-04/schema#",
+  "type":"object",
+  "additionalProperties":false,
             "properties": {
               "Consignment": {
                 "type": "object",
@@ -8,6 +9,46 @@
                 "properties": {
                   "ID": {
                     "type": "string"
+                  },
+                  "ActualDeliveryTransportEvent" : {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties" : {
+                      "Signature" : {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties" : {
+                          "SignatoryParty" : {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                              "Party" : {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties" : {
+                                  "Contact" : {
+                                    "type": "array",
+                                    "additionalProperties": false
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "OperationRouteOptimizationEstimatedDeliveryTransportEvent": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "OccurrenceDate": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    }
                   },
                   "TransportHandlingUnit": {
                     "type": "object",
@@ -20,6 +61,27 @@
                           "ID": {
                             "type": "string"
                           },
+                          "OperatingParty": {
+                            "type": "object",
+                            "properties": {
+                              "Party": {
+                                "type": "object",
+                                "properties": {
+                                  "Contact": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "Name": {
+                                          "type": ["string","null"]
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
                           "SizeTypeCode": {
                             "type": "string"
                           },
@@ -28,9 +90,7 @@
                           }
                         },
                         "required": [
-                          "ID",
-                          "SizeTypeCode",
-                          "Information"
+                          "ID"
                         ]
                       }
                     },
@@ -60,8 +120,7 @@
                               }
                             },
                             "required": [
-                              "Coordinates",
-                              "type"
+                              "Coordinates"
                             ]
                           }
                         },
@@ -71,12 +130,14 @@
                       },
                       "Description": {
                         "type": "string"
+                      },
+                      "StatusLocationOccurrenceDate": {
+                        "type": ["string","null"]
+                      },
+                      "StatusLocationOccurrenceTime": {
+                        "type":  ["string","null"]
                       }
-                    },
-                    "required": [
-                      "LocationCoordinate",
-                      "Description"
-                    ]
+                    }
                   },
                   "TransportEvent": {
                     "type": "array",
@@ -104,6 +165,15 @@
                             "Name": {
                               "type": "string"
                             },
+                            "LocationCoordinate": {
+                              "type" : "object",
+                              "additionalProperties":false,
+                              "properties" : {
+                                "GeoLocation" : {
+                                  "type": "object"
+                                }
+                              }
+                            },
                             "Address": {
                               "type": "array",
                               "additionalProperties":false,
@@ -127,13 +197,13 @@
                                     ]
                                   },
                                   "PostalZone": {
-                                    "type": "string"
+                                    "type": ["string", "null"]
                                   },
                                   "CityName": {
-                                    "type": "string"
+                                    "type": ["string", "null"]
                                   },
                                   "CountrySubentityCode": {
-                                    "type": "string"
+                                    "type": ["string", "null"]
                                   }
                                 },
                                 "required": [
@@ -147,9 +217,7 @@
                           },
                           "required": [
                             "ID",
-                            "Description",
-                            "Name",
-                            "Address"
+                            "Description"
                           ]
                         },
                         "Contact": {
@@ -177,10 +245,10 @@
                           "additionalProperties":false,
                           "properties": {
                             "ReferenceDate": {
-                              "type": "string"
+                              "type": ["string", "null"]
                             },
                             "ReferenceTime": {
-                              "type": "string"
+                              "type": ["string", "null"]
                             },
                             "Description": {
                               "type": "string"
@@ -190,8 +258,6 @@
                             }
                           },
                           "required": [
-                            "ReferenceDate",
-                            "ReferenceTime",
                             "Description",
                             "MilestoneGrouping"
                           ]
@@ -204,21 +270,27 @@
                       "required": [
                         "ID",
                         "Description",
-                        "Location",
-                        "Contact",
                         "CurrentStatus",
-                        "TransportEventTypeCode",
-                        "TransportEventTypeDescription"
+                        "TransportEventTypeCode"
                       ]
                     }
+                  },
+                  "OperationHandHeldEstimatedDeliveryTransportEvent": {
+                    "type": "object",
+                    "properties": {
+                      "OccurrenceDate": {
+                        "type":  ["string","null"]
+                      },
+                      "OccurrenceTime": {
+                        "type":  ["string","null"]
+                      }
+                    },
+                    "required": [
+                      "OccurrenceDate",
+                      "OccurrenceTime"
+                    ]
                   }
-                },
-                "required": [
-                  "ID",
-                  "TransportHandlingUnit",
-                  "StatusLocation",
-                  "TransportEvent"
-                ]
+                }
               },
               "ID": {
                 "type": "string"
@@ -229,4 +301,3 @@
               "ID"
             ]
           }
-}
